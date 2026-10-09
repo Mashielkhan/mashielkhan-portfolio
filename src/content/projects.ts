@@ -6,7 +6,7 @@ const baseProjects: Project[] = [
     slug: "tailornex",
     title: "TailorNex",
     summary:
-      "AI-assisted marketplace connecting customers and tailors through design generation, structured measurements, bidding, and milestone tracking.",
+      "A tailoring marketplace designed to connect customers with tailors through custom design exploration, guided measurements, bidding, and order progress tracking.",
     status: "in-development",
     tier: "featured",
     kind: "mobile",
@@ -16,64 +16,78 @@ const baseProjects: Project[] = [
     timeline: "2026 – present",
   },
   {
-    slug: "paper-erp",
-    title: "Paper ERP",
+    slug: "neon-trail",
+    title: "Neon Trail",
     summary:
-      "Workflow-first ERP design for a real paper distribution business, currently in the design stage.",
-    status: "in-design",
+      "A browser-based arcade game featuring six unlockable levels, increasing difficulty, hazards, power-ups, and combo-based scoring, built with HTML, CSS, and Canvas.",
+    status: "shipped",
     tier: "featured",
-    kind: "business-systems",
-    stack: [],
-    role: "System design",
-    // No metrics until it's running.
+    kind: "game",
+    stack: ["HTML", "CSS", "JavaScript", "Canvas API"],
+    role: "Game Developer",
+    links: {
+      code: "https://github.com/Mashielkhan/neon-trail-game",
+    },
   },
   {
     slug: "house-price-prediction",
     title: "Smart House Price Prediction System",
     summary:
-      "Machine learning system for property price estimation with preprocessing, an interactive dashboard, and real-time prediction.",
-    impact: "Reported R² of approximately 85%",
+      "A machine learning project for estimating property prices, combining data preprocessing, model experimentation, and an interactive Streamlit prediction interface.",
+    impact: "Reported model R² of approximately 85%",
     status: "shipped",
     tier: "featured",
     kind: "ai-ml",
     stack: ["Python", "Scikit-Learn", "Streamlit"],
     role: "ML Engineer and Developer",
+    links: {
+      code: "https://github.com/Mashielkhan/HousePrice-Prediction",
+    },
   },
   {
-    slug: "tailornex-ai-assistant",
-    title: "TailorNex AI Assistant",
-    summary: "Planned AI assistant for the TailorNex domain.",
-    status: "planned",
+    slug: "task-management",
+    title: "Task Management Application",
+    summary:
+      "A task management application designed to organize work with task details, priority levels, due dates, progress tracking, completion controls, and authentication.",
+    status: "shipped",
     tier: "more",
-    kind: "ai-ml",
+    kind: "web",
     stack: [],
-    role: "Designer and developer",
+    role: "Developer",
+    links: {
+      code: "https://github.com/Mashielkhan/Task-Management",
+    },
   },
   {
     slug: "appvision-react",
     title: "AppVision React",
     summary:
-      "Modern React and Vite web application focused on performance, responsive UI, and component architecture.",
+      "A React and Vite web application project focused on building a modern frontend with reusable components and a responsive user interface.",
     status: "shipped",
     tier: "more",
     kind: "web",
-    stack: ["React", "Vite"],
+    stack: ["React", "Vite", "TypeScript"],
     role: "Frontend Developer",
+    links: {
+      code: "https://github.com/Mashielkhan/appvision-react",
+    },
   },
   {
-    slug: "neon-trail",
-    title: "Neon Trail",
-    summary: "Browser-based game with 6 levels, power-ups, and progressive difficulty.",
-    status: "shipped",
+    slug: "paper-erp",
+    title: "Paper ERP",
+    summary:
+      "A workflow-focused ERP concept for a paper distribution business, planned around customer and supplier records, stock tracking, ledgers, and invoice generation.",
+    status: "in-design",
     tier: "more",
-    kind: "game",
-    stack: ["HTML", "CSS", "JavaScript", "Canvas API"],
-    role: "Game Developer",
+    kind: "business-systems",
+    stack: [],
+    role: "System Designer",
   },
   {
     slug: "hospital-management",
     title: "Hospital Management System",
-    summary: "Patient records, appointment tracking, administrative workflows.",
+    summary:
+      "A management system project focused on organizing patient records, appointment information, and administrative workflows.",
     status: "shipped",
     tier: "archive",
     kind: "business-systems",
@@ -83,7 +97,8 @@ const baseProjects: Project[] = [
   {
     slug: "library-management",
     title: "Library Management System",
-    summary: "Book management, borrowing system, record tracking.",
+    summary:
+      "A library management project for maintaining book records, tracking borrowing activity, and organizing library information.",
     status: "shipped",
     tier: "archive",
     kind: "business-systems",
@@ -93,7 +108,8 @@ const baseProjects: Project[] = [
   {
     slug: "shoes-ecommerce",
     title: "Shoes E-Commerce Website",
-    summary: "Responsive shopping site with product catalog and product pages.",
+    summary:
+      "A responsive e-commerce website project featuring a shoe product catalogue and individual product pages.",
     status: "shipped",
     tier: "archive",
     kind: "web",
@@ -102,7 +118,7 @@ const baseProjects: Project[] = [
   },
 ];
 
-export const projects: Project[] = baseProjects.map((p) => ({
-  ...p,
-  caseStudy: caseStudySlugs.has(p.slug),
+export const projects: Project[] = baseProjects.map((project) => ({
+  ...project,
+  caseStudy: caseStudySlugs.has(project.slug),
 }));
