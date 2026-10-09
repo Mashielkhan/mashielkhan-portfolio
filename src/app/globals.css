@@ -153,7 +153,6 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-
   *,
   *::before,
   *::after {
@@ -162,4 +161,19 @@
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
   }
+}
+
+/* 64px grid lines, faded with a radial mask (hero + media placeholders) */
+@utility bg-grid-lines {
+  background-image:
+    linear-gradient(to right, rgb(255 255 255 / 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgb(255 255 255 / 0.04) 1px, transparent 1px);
+  background-size: 64px 64px;
+  mask-image: radial-gradient(ellipse 70% 60% at 30% 40%, black 20%, transparent 100%);
+}
+
+/* The single permitted glow in the hero */
+@utility hero-glow {
+  background: radial-gradient(600px circle at 75% 35%, var(--color-accent-glow), transparent 60%);
+  opacity: 0.5;
 }
