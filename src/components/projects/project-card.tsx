@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { Badge } from "@/components/ui/badge";
 import { Chip } from "@/components/ui/chip";
+import { Arrow } from "@/components/ui/arrow";
 import { ProjectMedia } from "./project-media";
 import { cn } from "@/lib/cn";
 import type { Project } from "@/content/types";
@@ -10,9 +11,11 @@ export function ProjectCard({ project, lead = false }: { project: Project; lead?
 
   return (
     <article
+      data-spotlight=""
       className={cn(
-        "group relative overflow-hidden rounded-card border border-border bg-bg-2",
-        "transition-colors duration-(--dur-base) ease-standard hover:border-border-strong",
+        "group spotlight relative h-full overflow-hidden rounded-card border border-border bg-bg-2",
+        "transition-[transform,border-color] duration-(--dur-base) ease-standard hover:border-border-strong",
+        "motion-safe:hover:-translate-y-1",
         lead && "lg:grid lg:grid-cols-12",
       )}
     >
@@ -29,7 +32,7 @@ export function ProjectCard({ project, lead = false }: { project: Project; lead?
       <div className={cn("flex flex-col p-6", lead && "lg:col-span-5 lg:justify-center lg:p-10")}>
         <h3 className={cn("text-h3", lead && "lg:text-h2")}>
           {caseStudy ? (
-            <Link href={`/projects/${slug}`} className="after:absolute after:inset-0">
+            <Link href={`/ projects / ${slug} `} className="after:absolute after:inset-0">
               {title}
             </Link>
           ) : (
@@ -58,10 +61,13 @@ export function ProjectCard({ project, lead = false }: { project: Project; lead?
 
         <div className="relative z-10 mt-6 flex flex-wrap items-center gap-x-5 gap-y-2 text-small">
           {caseStudy ? (
-            <span className="text-text-1">Case study →</span>
+            <span className="text-text-1">
+              Case study <Arrow />
+            </span>
           ) : (
             <span className="text-text-3">Case study coming soon</span>
           )}
+
           {links?.demo && (
             <a
               href={links.demo}
@@ -72,6 +78,7 @@ export function ProjectCard({ project, lead = false }: { project: Project; lead?
               Demo ↗
             </a>
           )}
+
           {links?.code && (
             <a
               href={links.code}

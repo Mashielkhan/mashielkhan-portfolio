@@ -3,6 +3,7 @@ import { Chip } from "@/components/ui/chip";
 import { skillGroups } from "@/content/skills";
 import { projects } from "@/content/projects";
 import { site } from "@/content/site";
+import { Reveal } from "@/components/motion/reveal";
 
 export function Skills() {
   const titleOf = (slug: string) => projects.find((p) => p.slug === slug)?.title ?? slug;
@@ -15,9 +16,16 @@ export function Skills() {
       tone="alt"
     >
       <ul className="grid gap-6 md:grid-cols-2">
-        {skillGroups.map((g) => (
-          <li key={g.title} className="rounded-card border border-border bg-bg-2 p-6 md:p-8">
+        {skillGroups.map((g, i) => (
+          <Reveal
+            key={g.title}
+            as="li"
+            index={i}
+            spotlight
+            className="rounded-card border border-border bg-bg-2 p-6 md:p-8"
+          >
             <h3 className="text-h4">{g.title}</h3>
+
             <ul className="mt-5 flex flex-wrap gap-2">
               {g.skills.map((s) => (
                 <li key={s}>
@@ -25,12 +33,13 @@ export function Skills() {
                 </li>
               ))}
             </ul>
+
             {g.usedIn && (
               <p className="mt-5 border-t border-border-subtle pt-4 text-small text-text-3">
                 Used in <span className="text-text-2">{g.usedIn.map(titleOf).join(" · ")}</span>
               </p>
             )}
-          </li>
+          </Reveal>
         ))}
       </ul>
 

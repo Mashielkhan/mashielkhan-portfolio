@@ -15,7 +15,7 @@ export type Project = {
   timeline?: string;
   caseStudy?: boolean;
   links?: { demo?: string; code?: string; video?: string };
-  media?: { src: string; alt: string; width: number; height: number };
+  media?: { src: string; alt: string; width: number; height: number; preview?: string };
   stats?: { value: string; label: string }[];
 };
 

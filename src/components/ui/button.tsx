@@ -5,6 +5,7 @@ import { cn } from "@/lib/cn";
 
 const button = cva(
   [
+    "group/button",
     "inline-flex items-center justify-center gap-2 rounded-card font-medium",
     "transition duration-(--dur-fast) ease-standard",
     "hover:-translate-y-px active:translate-y-px",

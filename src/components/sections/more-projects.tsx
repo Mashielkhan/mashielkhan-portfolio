@@ -3,8 +3,9 @@ import { Badge } from "@/components/ui/badge";
 import { Chip } from "@/components/ui/chip";
 import { projects } from "@/content/projects";
 import type { Project } from "@/content/types";
+import { Reveal } from "@/components/motion/reveal";
 
-function ProjectRow({ project }: { project: Project }) {
+function ProjectRow({ project, index = 0 }: { project: Project; index?: number }) {
   const href = project.links?.demo ?? project.links?.code;
 
   const body = (
@@ -13,6 +14,7 @@ function ProjectRow({ project }: { project: Project }) {
         <h3 className="text-h4">{project.title}</h3>
         <p className="mt-1 text-small text-text-2">{project.summary}</p>
       </div>
+
       {project.stack.length > 0 && (
         <ul className="hidden flex-wrap gap-2 lg:flex lg:max-w-[18rem] lg:justify-end">
           {project.stack.map((s) => (
@@ -22,6 +24,7 @@ function ProjectRow({ project }: { project: Project }) {
           ))}
         </ul>
       )}
+
       <div className="flex items-center gap-3">
         <Badge status={project.status} />
         {href && (
@@ -36,7 +39,7 @@ function ProjectRow({ project }: { project: Project }) {
   const layout = "flex flex-col gap-3 py-5 md:flex-row md:items-center md:justify-between md:gap-8";
 
   return (
-    <li>
+    <Reveal as="li" index={index}>
       {href ? (
         <a
           href={href}
@@ -49,7 +52,7 @@ function ProjectRow({ project }: { project: Project }) {
       ) : (
         <div className={layout}>{body}</div>
       )}
-    </li>
+    </Reveal>
   );
 }
 
@@ -60,8 +63,8 @@ export function MoreProjects() {
   return (
     <Section id="more" eyebrow="04 — More" title="More projects, and what's next.">
       <ul className="divide-y divide-border-subtle border-y border-border-subtle">
-        {more.map((p) => (
-          <ProjectRow key={p.slug} project={p} />
+        {more.map((p, i) => (
+          <ProjectRow key={p.slug} project={p} index={i} />
         ))}
       </ul>
 
@@ -76,9 +79,10 @@ export function MoreProjects() {
               −
             </span>
           </summary>
+
           <ul className="divide-y divide-border-subtle border-y border-border-subtle">
-            {archive.map((p) => (
-              <ProjectRow key={p.slug} project={p} />
+            {archive.map((p, i) => (
+              <ProjectRow key={p.slug} project={p} index={i} />
             ))}
           </ul>
         </details>

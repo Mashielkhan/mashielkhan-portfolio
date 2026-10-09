@@ -5,6 +5,9 @@ import "./globals.css";
 import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
 import { site } from "@/content/site";
+import { MotionProvider } from "@/components/motion/motion-provider";
+import { SpotlightProvider } from "@/components/motion/spotlight-provider";
+import { MobileBar } from "@/components/layout/mobile-bar";
 
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
@@ -35,9 +38,19 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         >
           Skip to content
         </a>
-        <Header />
-        <main id="main">{children}</main>
-        <Footer />
+
+        <MotionProvider>
+          <Header />
+          <main id="main">{children}</main>
+          <Footer />
+          <MobileBar />
+        </MotionProvider>
+
+        <SpotlightProvider />
+
+        <noscript>
+          <style>{"[data-reveal]{opacity:1!important;transform:none!important}"}</style>
+        </noscript>
       </body>
     </html>
   );

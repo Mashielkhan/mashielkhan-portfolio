@@ -1,5 +1,6 @@
 import { Container } from "./container";
 import { cn } from "@/lib/cn";
+import { Reveal } from "@/components/motion/reveal";
 
 type SectionProps = {
   id: string;
@@ -18,12 +19,12 @@ export function Section({ id, eyebrow, title, tone = "base", className, children
       className={cn("section-y", tone === "alt" && "bg-bg-1", className)}
     >
       <Container>
-        <header className="mb-12 max-w-3xl">
+        <Reveal className="mb-12 max-w-3xl">
           <p className="font-mono text-label text-text-3 uppercase">{eyebrow}</p>
           <h2 id={`${id}-title`} className="mt-3 text-h2 text-balance">
             {title}
           </h2>
-        </header>
+        </Reveal>
         {children}
       </Container>
     </section>
