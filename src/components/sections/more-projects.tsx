@@ -5,7 +5,7 @@ import { projects } from "@/content/projects";
 import type { Project } from "@/content/types";
 import { Reveal } from "@/components/motion/reveal";
 
-function ProjectRow({ project, index = 0 }: { project: Project; index?: number }) {
+export function ProjectRow({ project, index = 0 }: { project: Project; index?: number }) {
   const href = project.links?.demo ?? project.links?.code;
 
   const body = (
@@ -45,7 +45,7 @@ function ProjectRow({ project, index = 0 }: { project: Project; index?: number }
           href={href}
           target="_blank"
           rel="noopener noreferrer"
-          className={`${layout} -mx-4 rounded-card px-4 transition-colors duration-(--dur-fast) hover:bg-bg-2`}
+          className={`${layout} -mx - 4 - card px - 4 - colors duration - (--dur - fast) hover: bg - bg - 2 rounded transition`}
         >
           {body}
         </a>

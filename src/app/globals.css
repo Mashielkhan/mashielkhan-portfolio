@@ -253,3 +253,12 @@
     opacity: 1;
   }
 }
+
+/* Project index filtering: cards are server-rendered, the client only sets data-filter */
+[data-filter="ai-ml"] > [data-kind]:not([data-kind="ai-ml"]),
+[data-filter="web"] > [data-kind]:not([data-kind="web"]),
+[data-filter="mobile"] > [data-kind]:not([data-kind="mobile"]),
+[data-filter="business-systems"] > [data-kind]:not([data-kind="business-systems"]),
+[data-filter="game"] > [data-kind]:not([data-kind="game"]) {
+  display: none;
+}

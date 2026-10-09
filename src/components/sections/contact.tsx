@@ -55,7 +55,7 @@ export function Contact() {
           </div>
 
           <p className="mt-8 font-mono text-label text-text-3">
-            Available from {site.availability.from} · Lahore, UTC+5
+            Available from {site.availability.label} · Lahore, UTC+5
           </p>
         </Reveal>
       </Container>

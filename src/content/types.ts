@@ -36,3 +36,44 @@ export type TimelineItem = {
   title: string;
   detail?: string;
 };
+
+export type Decision = {
+  title: string;
+  options: string[];
+  chosen: number; // index into options
+  tradeoff: string;
+};
+
+export type Block =
+  | { type: "prose"; id: string; title: string; paragraphs: string[]; callout?: string }
+  | { type: "list"; id: string; title: string; intro?: string; items: string[] }
+  | { type: "decisions"; id: string; title: string; items: Decision[] }
+  | {
+      type: "architecture";
+      id: string;
+      title: string;
+      summary: string;
+      columns: { label: string; nodes: string[] }[];
+    }
+  | {
+      type: "gallery";
+      id: string;
+      title: string;
+      items: { src: string; alt: string; caption: string; width: number; height: number }[];
+    }
+  | {
+      type: "metrics";
+      id: string;
+      title: string;
+      intro?: string;
+      columns: string[];
+      rows: { label: string; values: (string | number | null)[]; best?: boolean }[];
+      note?: string;
+    };
+
+export type CaseStudy = {
+  slug: string; // must match a Project slug
+  tagline: string;
+  stats?: { value: number; decimals?: number; prefix?: string; suffix?: string; label: string }[];
+  blocks: Block[];
+};

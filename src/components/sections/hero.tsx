@@ -22,7 +22,7 @@ export function Hero() {
         <div className="relative z-10 max-w-2xl">
           <div className="animate-rise-in" style={rise(0)}>
             <StatusPill>
-              {site.availability.label} · {site.availability.from}
+              {site.availability.label}
             </StatusPill>
           </div>
 

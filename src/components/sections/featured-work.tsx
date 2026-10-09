@@ -2,6 +2,8 @@ import { Section } from "@/components/ui/section";
 import { ProjectCard } from "@/components/projects/project-card";
 import { projects } from "@/content/projects";
 import { Reveal } from "@/components/motion/reveal";
+import { Button } from "@/components/ui/button";
+import { Arrow } from "@/components/ui/arrow";
 
 export function FeaturedWork() {
   const [lead, ...rest] = projects.filter((p) => p.tier === "featured");
@@ -26,6 +28,12 @@ export function FeaturedWork() {
             </Reveal>
           ))}
         </div>
+      </div>
+
+      <div className="mt-10">
+        <Button href="/projects" variant="secondary">
+          All projects <Arrow />
+        </Button>
       </div>
     </Section>
   );

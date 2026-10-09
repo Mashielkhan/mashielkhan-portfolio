@@ -1,18 +1,28 @@
 export const site = {
   name: "Mashiel Khan",
   location: "Lahore, Pakistan",
+
   tagline: "Software Developer Building AI-Powered Products for Real Businesses",
-  shortTagline: "AI products for real businesses",
+  shortTagline: "AI, software, and business automation",
+
   description:
-    "CS student at UCP. I take products from discovery to deployed system: a tailoring marketplace, a paper-distribution ERP, and ML tools.",
+    "Computer Science student at UCP focused on building practical software solutions, AI-powered applications, and business systems. Current projects include TailorNex, a tailoring marketplace, a paper distribution ERP, and machine learning tools.",
+
   url: process.env.NEXT_PUBLIC_SITE_URL?.trim() || "http://localhost:3000",
   resumeUrl: "/resume.pdf",
-  email: "mashielkhan2@gmail.com", // TODO: replace
+
+  email: "mashielkhan2@gmail.com",
+
   socials: {
-    github: "https://github.com/Mashielkhan", // TODO
-    linkedin: "https://www.linkedin.com/in/mashiel-khan-ba7a46367/", // TODO
+    github: "https://github.com/Mashielkhan",
+    linkedin: "https://www.linkedin.com/in/mashiel-khan-ba7a46367/",
   },
-  availability: { open: true, label: "Open to internships", from: "TODO" }, // TODO: your window
+
+  availability: {
+    open: true,
+    label: "Open to internships",
+  },
+
   nav: [
     { label: "Work", href: "/#work" },
     { label: "Approach", href: "/#approach" },
@@ -20,10 +30,18 @@ export const site = {
     { label: "About", href: "/#about" },
     { label: "Contact", href: "/#contact" },
   ],
+
   now: {
     building: ["TailorNex", "Paper ERP"],
     learning: ["Agentic AI workflows", "Cloud technologies"],
     updated: "Oct 2026",
   },
-  interests: ["Artificial Intelligence", "Agentic AI", "Business automation", "SaaS", "Cloud"],
+
+  interests: [
+    "Artificial Intelligence",
+    "Agentic AI",
+    "Business Automation",
+    "SaaS",
+    "Cloud Technologies",
+  ],
 } as const;

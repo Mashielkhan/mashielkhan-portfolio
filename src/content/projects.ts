@@ -1,29 +1,30 @@
 import type { Project } from "./types";
+import { caseStudySlugs } from "./case-studies";
 
-export const projects: Project[] = [
+const baseProjects: Project[] = [
   {
     slug: "tailornex",
     title: "TailorNex",
     summary:
-      "Digital tailoring marketplace connecting customers and tailors through profiles, measurements, order tracking, and digital workflows.",
-    status: "in-development", // switch to "live" once a deployed build exists
+      "AI-assisted marketplace connecting customers and tailors through design generation, structured measurements, bidding, and milestone tracking.",
+    status: "in-development",
     tier: "featured",
     kind: "mobile",
-    stack: ["Flutter", "Firebase"],
+    stack: ["Flutter", "FastAPI", "DynamoDB", "AWS Lambda", "AWS S3"],
     role: "Product Designer, System Analyst, Developer",
-    team: "Final-year project (team)",
-    // TODO: add your specific contributions in Phase 4
+    team: "Final-year project, team of three",
+    timeline: "2026 – present",
   },
   {
     slug: "paper-erp",
     title: "Paper ERP",
     summary:
-      "Workflow-first ERP design for a real paper distribution business, replacing manual processes with a structured system.",
+      "Workflow-first ERP design for a real paper distribution business, currently in the design stage.",
     status: "in-design",
     tier: "featured",
     kind: "business-systems",
-    stack: [], // TODO: planned stack
-    role: "TODO: confirm role",
+    stack: [],
+    role: "System design",
     // No metrics until it's running.
   },
   {
@@ -31,8 +32,8 @@ export const projects: Project[] = [
     title: "Smart House Price Prediction System",
     summary:
       "Machine learning system for property price estimation with preprocessing, an interactive dashboard, and real-time prediction.",
-    impact: "≈85% R² score (to be backed by baseline, MAE/RMSE and cross-validation in Phase 4)",
-    status: "shipped", // TODO: "live" once deployed
+    impact: "Reported R² of approximately 85%",
+    status: "shipped",
     tier: "featured",
     kind: "ai-ml",
     stack: ["Python", "Scikit-Learn", "Streamlit"],
@@ -41,12 +42,12 @@ export const projects: Project[] = [
   {
     slug: "tailornex-ai-assistant",
     title: "TailorNex AI Assistant",
-    summary: "Planned LLM-powered assistant for the TailorNex domain.",
+    summary: "Planned AI assistant for the TailorNex domain.",
     status: "planned",
     tier: "more",
     kind: "ai-ml",
-    stack: [], // TODO: decide when architecture is defined
-    role: "TODO",
+    stack: [],
+    role: "Designer and developer",
   },
   {
     slug: "appvision-react",
@@ -100,3 +101,8 @@ export const projects: Project[] = [
     role: "Developer",
   },
 ];
+
+export const projects: Project[] = baseProjects.map((p) => ({
+  ...p,
+  caseStudy: caseStudySlugs.has(p.slug),
+}));

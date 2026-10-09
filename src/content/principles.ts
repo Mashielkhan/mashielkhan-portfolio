@@ -1,10 +1,9 @@
 import type { Principle } from "./types";
 
-// TODO: rewrite each with a real decision you made, then link it to the case study in Phase 4.
 export const principles: Principle[] = [
   {
     title: "Start with the people who live with the problem",
-    text: "Features come second. For TailorNex, the starting point is how tailors and customers actually work together today.",
+    text: "Features come second. For TailorNex, I design around how tailors and customers actually work together.",
     evidence: "TailorNex",
   },
   {
@@ -13,13 +12,13 @@ export const principles: Principle[] = [
     evidence: "Paper ERP",
   },
   {
-    title: "Measure against a baseline",
-    text: "A score means little alone. I compare models against a simple baseline before claiming an improvement.",
+    title: "Report results honestly",
+    text: "A score only means something alongside how it was measured. I say what was measured, how, and what is not measured yet.",
     evidence: "Smart House Price Prediction",
   },
   {
     title: "Ship, then improve",
-    text: "Working software teaches faster than plans. I build small, put it in front of people, and iterate.",
+    text: "Working software teaches faster than plans. I build in small steps and improve as I learn.",
     evidence: "AppVision React · Neon Trail",
   },
 ];
