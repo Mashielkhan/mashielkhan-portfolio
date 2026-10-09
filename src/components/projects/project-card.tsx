@@ -32,7 +32,7 @@ export function ProjectCard({ project, lead = false }: { project: Project; lead?
       <div className={cn("flex flex-col p-6", lead && "lg:col-span-5 lg:justify-center lg:p-10")}>
         <h3 className={cn("text-h3", lead && "lg:text-h2")}>
           {caseStudy ? (
-            <Link href={`/ projects / ${slug} `} className="after:absolute after:inset-0">
+            <Link href={`/projects/${slug}`} className="after:absolute after:inset-0">
               {title}
             </Link>
           ) : (

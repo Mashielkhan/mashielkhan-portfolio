@@ -4,9 +4,18 @@ import { Chip } from "@/components/ui/chip";
 import { projects } from "@/content/projects";
 import type { Project } from "@/content/types";
 import { Reveal } from "@/components/motion/reveal";
+import Link from "next/link";
 
-export function ProjectRow({ project, index = 0 }: { project: Project; index?: number }) {
-  const href = project.links?.demo ?? project.links?.code;
+export function ProjectRow({
+  project,
+  index = 0,
+}: {
+  project: Project;
+  index?: number;
+}) {
+  const href = project.caseStudy
+    ? `/ projects / ${project.slug} `
+    : project.links?.demo ?? project.links?.code;
 
   const body = (
     <>
@@ -36,19 +45,28 @@ export function ProjectRow({ project, index = 0 }: { project: Project; index?: n
     </>
   );
 
-  const layout = "flex flex-col gap-3 py-5 md:flex-row md:items-center md:justify-between md:gap-8";
+  const layout =
+    "flex flex-col gap-3 py-5 md:flex-row md:items-center md:justify-between md:gap-8";
+
+  const linkClassName = `${layout} -mx - 4 rounded - card px - 4 transition - colors duration - (--dur - fast) hover: bg - bg - 2`;
 
   return (
     <Reveal as="li" index={index}>
       {href ? (
-        <a
-          href={href}
-          target="_blank"
-          rel="noopener noreferrer"
-          className={`${layout} -mx - 4 - card px - 4 - colors duration - (--dur - fast) hover: bg - bg - 2 rounded transition`}
-        >
-          {body}
-        </a>
+        href.startsWith("/") ? (
+          <Link href={href} className={linkClassName}>
+            {body}
+          </Link>
+        ) : (
+          <a
+            href={href}
+            target="_blank"
+            rel="noopener noreferrer"
+            className={linkClassName}
+          >
+            {body}
+          </a>
+        )
       ) : (
         <div className={layout}>{body}</div>
       )}
@@ -61,7 +79,11 @@ export function MoreProjects() {
   const archive = projects.filter((p) => p.tier === "archive");
 
   return (
-    <Section id="more" eyebrow="04 — More" title="More projects, and what's next.">
+    <Section
+      id="more"
+      eyebrow="04 — More"
+      title="More projects, and what's next."
+    >
       <ul className="divide-y divide-border-subtle border-y border-border-subtle">
         {more.map((p, i) => (
           <ProjectRow key={p.slug} project={p} index={i} />
