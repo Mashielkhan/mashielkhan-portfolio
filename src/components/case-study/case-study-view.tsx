@@ -64,18 +64,24 @@ export function CaseStudyView({ project, study }: { project: Project; study: Cas
         {(demo || code || video) && (
           <div className="mt-6 flex flex-wrap gap-3">
             {demo && (
-              <Button href={demo} variant="secondary">
-                Live demo ↗
+              <Button asChild variant="outline" className="rounded-full px-4 py-2 text-small">
+                <a href={demo} target="_blank" rel="noreferrer">
+                  Live demo ↗
+                </a>
               </Button>
             )}
             {code && (
-              <Button href={code} variant="secondary">
-                Source code ↗
+              <Button asChild variant="outline" className="rounded-full px-4 py-2 text-small">
+                <a href={code} target="_blank" rel="noreferrer">
+                  Source code ↗
+                </a>
               </Button>
             )}
             {video && (
-              <Button href={video} variant="secondary">
-                Video ↗
+              <Button asChild variant="outline" className="rounded-full px-4 py-2 text-small">
+                <a href={video} target="_blank" rel="noreferrer">
+                  Video ↗
+                </a>
               </Button>
             )}
           </div>

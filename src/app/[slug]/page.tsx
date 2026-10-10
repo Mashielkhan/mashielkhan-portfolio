@@ -1,4 +1,3 @@
-
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { CaseStudyView } from "@/components/case-study/case-study-view";
@@ -30,14 +29,14 @@ export async function generateMetadata({
     title: project.title,
     description: project.summary,
     alternates: {
-      canonical: `/projects/${slug}`
+      canonical,
     },
     openGraph: {
       type: "website",
       siteName: site.name,
       title: `${project.title} | ${site.name}`,
       description: project.summary,
-      url: `/projects/${slug}`,
+      url: canonical,
     },
   };
 }

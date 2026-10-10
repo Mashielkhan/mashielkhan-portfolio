@@ -1,7 +1,14 @@
 @import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+
+@custom-variant dark (&:is(.dark *));
+
+/* =========================================
+   DESIGN TOKENS
+========================================= */
 
 @theme {
-  /* Remove Tailwind's default palette so only our tokens can be used */
   --color-*: initial;
   --color-white: #ffffff;
 
@@ -13,32 +20,30 @@
   --color-bg-4: #1e1e23;
 
   /* Borders */
-  --color-border-subtle: rgb(255 255 255 / 0.06);
-  --color-border: rgb(255 255 255 / 0.1);
-  --color-border-strong: rgb(255 255 255 / 0.16);
+  --color-border-subtle: rgb(255 255 255 / 6%);
+  --color-border-strong: rgb(255 255 255 / 16%);
 
   /* Text */
   --color-text-1: #ededef;
-  --color-text-2: #a1a1aa;
-  --color-text-3: #8a8a93;
-  --color-text-4: #5c5c66;
-  /* decorative only */
+  --color-text-2: #b4b4be;
+  --color-text-3: #9696a1;
+  --color-text-4: #73737e;
 
-  /* Accent (single hue) */
+  /* Accent */
   --color-accent-300: #a5aeff;
   --color-accent-400: #8591ff;
   --color-accent-500: #6c7bff;
   --color-accent-600: #5563f0;
   --color-accent-700: #424ed0;
-  --color-accent-glow: rgb(108 123 255 / 0.35);
+  --color-accent-glow: rgb(108 123 255 / 35%);
 
   /* Status */
   --color-success: #3dd68c;
   --color-warning: #f5a524;
   --color-danger: #f2555a;
-  --color-planned: #8a8a93;
+  --color-planned: #9696a1;
 
-  /* Breakpoints: 480 / 768 / 1024 / 1280 / 1536 */
+  /* Breakpoints */
   --breakpoint-*: initial;
   --breakpoint-sm: 30rem;
   --breakpoint-md: 48rem;
@@ -48,21 +53,15 @@
 
   /* Containers */
   --container-page: 75rem;
-  /* 1200 */
   --container-wide: 82.5rem;
-  /* 1320 */
   --container-copy: 45rem;
-  /* 720 prose */
 
   /* Radius */
   --radius-chip: 0.5rem;
-  /* 8 */
   --radius-card: 0.75rem;
-  /* 12 */
   --radius-frame: 1.25rem;
-  /* 20 */
 
-  /* Type scale */
+  /* Typography */
   --text-display: clamp(2.5rem, 7vw, 4.5rem);
   --text-display--line-height: 1.02;
   --text-display--letter-spacing: -0.035em;
@@ -94,7 +93,6 @@
   --text-body--line-height: 1.6;
   --text-small: 0.875rem;
   --text-small--line-height: 1.5;
-
   --text-label: 0.75rem;
   --text-label--line-height: 1.4;
   --text-label--letter-spacing: 0.08em;
@@ -105,18 +103,19 @@
   --ease-standard: cubic-bezier(0.2, 0, 0, 1);
   --ease-soft: cubic-bezier(0.65, 0, 0.35, 1);
 
+  /* Animations: Tailwind generates animate-rise-in and animate-page-in */
   --animate-rise-in: rise-in 700ms var(--ease-out-expo) both;
   --animate-page-in: page-in 300ms var(--ease-soft) both;
 
   @keyframes rise-in {
     from {
       opacity: 0;
-      transform: translateY(16px);
+      transform: translateY(20px);
     }
 
     to {
       opacity: 1;
-      transform: none;
+      transform: translateY(0);
     }
   }
 
@@ -133,19 +132,118 @@
   }
 }
 
+/* =========================================
+   SHADCN / RADIX THEME MAPPING
+========================================= */
+
 @theme inline {
   --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
-  --font-mono: var(--font-geist-mono), ui-monospace, SFMono-Regular, monospace;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  --font-heading: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --color-foreground: var(--foreground);
+  --color-background: var(--background);
+
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-2xl: calc(var(--radius) * 1.8);
+  --radius-3xl: calc(var(--radius) * 2.2);
+  --radius-4xl: calc(var(--radius) * 2.6);
 }
 
-/* Motion durations (use as duration-(--dur-fast)) */
+/* =========================================
+   THEME COLORS — DARK BY DEFAULT
+========================================= */
+
 :root {
+  color-scheme: dark;
+
   --dur-instant: 100ms;
   --dur-fast: 160ms;
   --dur-base: 240ms;
   --dur-slow: 400ms;
   --dur-hero: 700ms;
+
+  --background: oklch(0.11 0.005 270);
+  --foreground: oklch(0.96 0.003 270);
+
+  --card: oklch(0.16 0.005 270);
+  --card-foreground: oklch(0.96 0.003 270);
+
+  --popover: oklch(0.16 0.005 270);
+  --popover-foreground: oklch(0.96 0.003 270);
+
+  --primary: oklch(0.68 0.18 275);
+  --primary-foreground: oklch(0.99 0 0);
+
+  --secondary: oklch(0.22 0.006 270);
+  --secondary-foreground: oklch(0.96 0.003 270);
+
+  --muted: oklch(0.20 0.006 270);
+  --muted-foreground: oklch(0.72 0.008 270);
+
+  --accent: oklch(0.23 0.025 275);
+  --accent-foreground: oklch(0.96 0.003 270);
+
+  --destructive: oklch(0.65 0.22 25);
+  --border: oklch(1 0 0 / 12%);
+  --input: oklch(1 0 0 / 14%);
+  --ring: oklch(0.68 0.18 275);
+
+  --chart-1: oklch(0.68 0.18 275);
+  --chart-2: oklch(0.72 0.14 190);
+  --chart-3: oklch(0.76 0.15 145);
+  --chart-4: oklch(0.75 0.16 75);
+  --chart-5: oklch(0.7 0.19 330);
+
+  --radius: 0.625rem;
+
+  --sidebar: oklch(0.13 0.005 270);
+  --sidebar-foreground: oklch(0.96 0.003 270);
+  --sidebar-primary: oklch(0.68 0.18 275);
+  --sidebar-primary-foreground: oklch(0.99 0 0);
+  --sidebar-accent: oklch(0.22 0.015 275);
+  --sidebar-accent-foreground: oklch(0.96 0.003 270);
+  --sidebar-border: oklch(1 0 0 / 12%);
+  --sidebar-ring: oklch(0.68 0.18 275);
 }
+
+/* =========================================
+   BASE STYLES
+========================================= */
 
 @layer base {
   html {
@@ -153,10 +251,14 @@
     color-scheme: dark;
     scroll-behavior: smooth;
     scroll-padding-top: 5rem;
+    @apply font-sans;
   }
 
   body {
-    @apply bg-bg-0 font-sans text-body text-text-1 antialiased;
+    min-height: 100vh;
+    background: var(--color-bg-0);
+    color: var(--color-text-1);
+    @apply antialiased;
   }
 
   ::selection {
@@ -166,11 +268,18 @@
 
   :focus-visible {
     outline: 2px solid var(--color-accent-500);
-    outline-offset: 2px;
+    outline-offset: 3px;
+  }
+
+  * {
+    @apply border-border;
   }
 }
 
-/* Section vertical rhythm: 80px mobile, 144px desktop */
+/* =========================================
+   LAYOUT UTILITIES
+========================================= */
+
 @utility section-y {
   padding-block: 5rem;
 
@@ -179,33 +288,23 @@
   }
 }
 
-@media (prefers-reduced-motion: reduce) {
-  *,
-  *::before,
-  *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-    scroll-behavior: auto !important;
-  }
-}
-
-/* 64px grid lines, faded with a radial mask (hero + media placeholders) */
 @utility bg-grid-lines {
   background-image:
-    linear-gradient(to right, rgb(255 255 255 / 0.04) 1px, transparent 1px),
-    linear-gradient(to bottom, rgb(255 255 255 / 0.04) 1px, transparent 1px);
+    linear-gradient(to right, rgb(255 255 255 / 4%) 1px, transparent 1px),
+    linear-gradient(to bottom, rgb(255 255 255 / 4%) 1px, transparent 1px);
   background-size: 64px 64px;
-  mask-image: radial-gradient(ellipse 70% 60% at 30% 40%, black 20%, transparent 100%);
+  mask-image: radial-gradient(ellipse 70% 60% at 30% 40%,
+      black 20%,
+      transparent 100%);
 }
 
-/* The single permitted glow in the hero */
 @utility hero-glow {
-  background: radial-gradient(600px circle at 75% 35%, var(--color-accent-glow), transparent 60%);
+  background: radial-gradient(600px circle at 75% 35%,
+      var(--color-accent-glow),
+      transparent 60%);
   opacity: 0.5;
 }
 
-/* Cursor-follow glow. Position vars (--mx/--my) are set by SpotlightProvider. */
 @utility spotlight {
   position: relative;
   isolation: isolate;
@@ -223,25 +322,22 @@
 
   &::before {
     z-index: -1;
-    background: radial-gradient(
-      360px circle at var(--mx, 50%) var(--my, 50%),
-      color-mix(in srgb, var(--color-accent-500) 12%, transparent),
-      transparent 60%
-    );
+    background: radial-gradient(360px circle at var(--mx, 50%) var(--my, 50%),
+        color-mix(in srgb, var(--color-accent-500) 12%, transparent),
+        transparent 60%);
   }
 
-  /* 1px ring that lights up near the cursor */
   &::after {
     padding: 1px;
-    background: radial-gradient(
-      260px circle at var(--mx, 50%) var(--my, 50%),
-      color-mix(in srgb, var(--color-accent-500) 70%, transparent),
-      transparent 70%
-    );
+    background: radial-gradient(260px circle at var(--mx, 50%) var(--my, 50%),
+        color-mix(in srgb, var(--color-accent-500) 70%, transparent),
+        transparent 70%);
+
     -webkit-mask:
       linear-gradient(#000 0 0) content-box,
       linear-gradient(#000 0 0);
     -webkit-mask-composite: xor;
+
     mask:
       linear-gradient(#000 0 0) content-box,
       linear-gradient(#000 0 0);
@@ -254,11 +350,30 @@
   }
 }
 
-/* Project index filtering: cards are server-rendered, the client only sets data-filter */
-[data-filter="ai-ml"] > [data-kind]:not([data-kind="ai-ml"]),
-[data-filter="web"] > [data-kind]:not([data-kind="web"]),
-[data-filter="mobile"] > [data-kind]:not([data-kind="mobile"]),
-[data-filter="business-systems"] > [data-kind]:not([data-kind="business-systems"]),
-[data-filter="game"] > [data-kind]:not([data-kind="game"]) {
+/* =========================================
+   PROJECT FILTERS
+========================================= */
+
+[data-filter="ai-ml"]>[data-kind]:not([data-kind="ai-ml"]),
+[data-filter="web"]>[data-kind]:not([data-kind="web"]),
+[data-filter="mobile"]>[data-kind]:not([data-kind="mobile"]),
+[data-filter="business-systems"]>[data-kind]:not([data-kind="business-systems"]),
+[data-filter="game"]>[data-kind]:not([data-kind="game"]) {
   display: none;
+}
+
+/* =========================================
+   REDUCED MOTION ACCESSIBILITY
+========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }

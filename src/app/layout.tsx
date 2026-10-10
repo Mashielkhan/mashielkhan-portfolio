@@ -9,6 +9,10 @@ import { site } from "@/content/site";
 import { MotionProvider } from "@/components/motion/motion-provider";
 import { SpotlightProvider } from "@/components/motion/spotlight-provider";
 import { MobileBar } from "@/components/layout/mobile-bar";
+import { JetBrains_Mono } from "next/font/google";
+import { cn } from "@/lib/utils";
+
+const jetbrainsMono = JetBrains_Mono({ subsets: ['latin'], variable: '--font-mono' });
 
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
@@ -48,7 +52,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${GeistSans.variable} ${GeistMono.variable}`}>
+    <html lang="en" className={cn(GeistSans.variable, GeistMono.variable, jetbrainsMono.variable)}>
       <body>
         <a
           href="#main"

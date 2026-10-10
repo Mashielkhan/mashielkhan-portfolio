@@ -19,8 +19,10 @@ export function Header() {
         </Link>
         <NavLinks items={site.nav} />
         <div className="flex items-center gap-3">
-          <Button href={site.resumeUrl} variant="secondary" className="hidden md:inline-flex">
-            Resume
+          <Button asChild variant="secondary" className="hidden md:inline-flex">
+            <a href={site.resumeUrl} target="_blank" rel="noreferrer">
+              Resume
+            </a>
           </Button>
           <MobileMenu />
         </div>

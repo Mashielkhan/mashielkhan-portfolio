@@ -1,9 +1,11 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/cn";
 import { site } from "@/content/site";
+
 
 export function MobileBar() {
   const [pastHero, setPastHero] = useState(false);
@@ -12,12 +14,15 @@ export function MobileBar() {
   useEffect(() => {
     const hero = document.getElementById("hero");
     if (!hero) return;
+
     const ends = [
       document.getElementById("contact"),
       document.getElementById("site-footer"),
     ].filter((el): el is HTMLElement => !!el);
 
-    const heroIo = new IntersectionObserver(([e]) => setPastHero(!e.isIntersecting));
+    const heroIo = new IntersectionObserver(([e]) =>
+      setPastHero(!e.isIntersecting),
+    );
     heroIo.observe(hero);
 
     const visible = new Set<Element>();
@@ -28,6 +33,7 @@ export function MobileBar() {
       }
       setAtEnd(visible.size > 0);
     });
+
     ends.forEach((el) => endIo.observe(el));
 
     return () => {
@@ -49,14 +55,18 @@ export function MobileBar() {
       )}
     >
       <nav aria-label="Quick actions" className="grid grid-cols-3 gap-2 p-2">
-        <Button href="#work" variant="ghost" size="lg">
-          Work
+        <Button asChild>
+          <Link href="#work">Work</Link>
         </Button>
-        <Button href={site.resumeUrl} variant="ghost" size="lg">
-          Resume
+
+        <Button asChild variant="ghost" size="lg">
+          <a href={site.resumeUrl} target="_blank" rel="noreferrer">
+            Resume
+          </a>
         </Button>
-        <Button href="#contact" size="lg">
-          Contact
+
+        <Button asChild variant="ghost" size="lg">
+          <Link href="#contact">Contact</Link>
         </Button>
       </nav>
     </div>

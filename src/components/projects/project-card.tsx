@@ -55,7 +55,7 @@ export function ProjectCard({
       >
         <h3 className={cn("text-h3", lead && "lg:text-h2")}>
           {caseStudy ? (
-            <Link href={`/ projects / ${slug} `} className="after:absolute after:inset-0">
+            <Link href={`/projects/${slug}`} className="after:absolute after:inset-0">
               {title}
             </Link>
           ) : (

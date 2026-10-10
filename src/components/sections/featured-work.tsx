@@ -4,6 +4,7 @@ import { projects } from "@/content/projects";
 import { Reveal } from "@/components/motion/reveal";
 import { Button } from "@/components/ui/button";
 import { Arrow } from "@/components/ui/arrow";
+import Link from "next/link";
 
 export function FeaturedWork() {
   const [lead, ...rest] = projects.filter((p) => p.tier === "featured");
@@ -31,8 +32,10 @@ export function FeaturedWork() {
       </div>
 
       <div className="mt-10">
-        <Button href="/projects" variant="secondary">
-          All projects <Arrow />
+        <Button asChild variant="secondary">
+          <Link href="/projects">
+            All projects <Arrow />
+          </Link>
         </Button>
       </div>
     </Section>

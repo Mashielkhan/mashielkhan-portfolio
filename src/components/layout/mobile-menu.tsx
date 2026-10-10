@@ -96,8 +96,10 @@ export function MobileMenu() {
             ))}
           </nav>
 
-          <Button href={site.resumeUrl} size="lg" className="w-full">
-            Download resume
+          <Button asChild size="lg" className="w-full">
+            <a href={site.resumeUrl} target="_blank" rel="noreferrer">
+              Download resume
+            </a>
           </Button>
         </div>
       </dialog>

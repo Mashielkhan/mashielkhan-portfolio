@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { CopyEmail } from "@/components/ui/copy-email";
 import { site } from "@/content/site";
 import { Reveal } from "@/components/motion/reveal";
+import Link from "next/link";
 
 export function Contact() {
   const link = "text-text-2 transition-colors duration-(--dur-fast) hover:text-text-1";
@@ -23,12 +24,16 @@ export function Contact() {
           </p>
 
           <div className="mt-10 flex flex-col justify-center gap-3 sm:flex-row">
-            <Button href={`mailto:${site.email}`} size="lg">
-              Email me
+            <Button asChild size="lg">
+              <Link href={`mailto:${site.email}`} target="_blank" rel="noreferrer">
+                Email me
+              </Link>
             </Button>
 
-            <Button href={site.resumeUrl} variant="secondary" size="lg">
-              Resume
+            <Button asChild variant="secondary" size="lg">
+              <Link href={site.resumeUrl} target="_blank" rel="noreferrer">
+                Resume
+              </Link>
             </Button>
           </div>
 

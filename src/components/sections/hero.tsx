@@ -6,6 +6,7 @@ import { StatusPill } from "@/components/ui/status-pill";
 import { HeroVisual } from "./hero-visual";
 import { site } from "@/content/site";
 import { projects } from "@/content/projects";
+import Link from "next/link";
 
 const rise = (ms: number) => ({ animationDelay: `${ms}ms` });
 
@@ -53,14 +54,18 @@ export function Hero() {
           </p>
 
           <div className="mt-10 flex animate-rise-in flex-col gap-3 sm:flex-row" style={rise(440)}>
-            <Button href="#work" size="lg">
-              View my work <Arrow />
+            <Button asChild size="lg">
+              <Link href="#work">
+                View my work <Arrow />
+              </Link>
             </Button>
-            <Button href={site.resumeUrl} variant="secondary" size="lg">
-              Download resume
+
+            <Button asChild variant="secondary" size="lg">
+              <Link href={site.resumeUrl} target="_blank" rel="noreferrer">
+                Download resume
+              </Link>
             </Button>
           </div>
-
           <ul
             aria-label="Selected projects"
             className="mt-10 flex animate-rise-in flex-wrap gap-2"

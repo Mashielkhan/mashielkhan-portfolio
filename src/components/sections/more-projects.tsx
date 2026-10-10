@@ -14,7 +14,7 @@ export function ProjectRow({
   index?: number;
 }) {
   const href = project.caseStudy
-    ? `/ projects / ${project.slug} `
+    ? `/projects/${project.slug}`
     : project.links?.demo ?? project.links?.code;
 
   const body = (
