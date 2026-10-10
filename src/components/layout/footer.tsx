@@ -14,6 +14,7 @@ export function Footer() {
             target="_blank"
             rel="noopener noreferrer"
             className="hover:text-text-1"
+            aria-label="View portfolio source code on GitHub (opens in a new tab)"
           >
             Source ↗
           </a>

@@ -1,3 +1,4 @@
+
 import type { Metadata } from "next";
 import { Container } from "@/components/ui/container";
 import { Reveal } from "@/components/motion/reveal";
@@ -5,12 +6,25 @@ import { ProjectCard } from "@/components/projects/project-card";
 import { FilterableGrid } from "@/components/projects/filterable-grid";
 import { ProjectRow } from "@/components/sections/more-projects";
 import { projects } from "@/content/projects";
+import { site } from "@/content/site";
 import type { Project } from "@/content/types";
+
+const description =
+  "Products and systems built for real businesses: AI, mobile, web, and business software.";
 
 export const metadata: Metadata = {
   title: "Projects",
-  description:
-    "Products and systems built for real businesses: AI, mobile, web, and business software.",
+  description,
+  alternates: {
+    canonical: "/projects"
+  },
+  openGraph: {
+    type: "website",
+    siteName: site.name,
+    title: `Projects | ${site.name}`,
+    description,
+    url: "/projects",
+  },
 };
 
 const labels: Record<Project["kind"], string> = {

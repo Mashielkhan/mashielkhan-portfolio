@@ -6,8 +6,25 @@ import { ProjectMedia } from "./project-media";
 import { cn } from "@/lib/cn";
 import type { Project } from "@/content/types";
 
-export function ProjectCard({ project, lead = false }: { project: Project; lead?: boolean }) {
-  const { slug, title, summary, impact, status, stack, role, team, links, caseStudy } = project;
+export function ProjectCard({
+  project,
+  lead = false,
+}: {
+  project: Project;
+  lead?: boolean;
+}) {
+  const {
+    slug,
+    title,
+    summary,
+    impact,
+    status,
+    stack,
+    role,
+    team,
+    links,
+    caseStudy,
+  } = project;
 
   return (
     <article
@@ -22,17 +39,23 @@ export function ProjectCard({ project, lead = false }: { project: Project; lead?
       <div
         className={cn(
           "relative aspect-[16/10] overflow-hidden border-b border-border-subtle",
-          lead && "lg:col-span-7 lg:aspect-auto lg:min-h-[22rem] lg:border-r lg:border-b-0",
+          lead &&
+          "lg:col-span-7 lg:aspect-auto lg:min-h-[22rem] lg:border-r lg:border-b-0",
         )}
       >
         <ProjectMedia project={project} />
         <Badge status={status} className="absolute top-4 right-4 backdrop-blur-sm" />
       </div>
 
-      <div className={cn("flex flex-col p-6", lead && "lg:col-span-5 lg:justify-center lg:p-10")}>
+      <div
+        className={cn(
+          "flex flex-col p-6",
+          lead && "lg:col-span-5 lg:justify-center lg:p-10",
+        )}
+      >
         <h3 className={cn("text-h3", lead && "lg:text-h2")}>
           {caseStudy ? (
-            <Link href={`/projects/${slug}`} className="after:absolute after:inset-0">
+            <Link href={`/ projects / ${slug} `} className="after:absolute after:inset-0">
               {title}
             </Link>
           ) : (
@@ -42,7 +65,9 @@ export function ProjectCard({ project, lead = false }: { project: Project; lead?
 
         <p className="mt-3 text-small text-text-2">{summary}</p>
 
-        {impact && <p className="mt-3 font-mono text-label text-accent-300">{impact}</p>}
+        {impact && (
+          <p className="mt-3 font-mono text-label text-accent-300">{impact}</p>
+        )}
 
         <p className="mt-4 text-small text-text-3">
           <span className="text-text-2">Role</span> · {role}
@@ -73,6 +98,7 @@ export function ProjectCard({ project, lead = false }: { project: Project; lead?
               href={links.demo}
               target="_blank"
               rel="noopener noreferrer"
+              aria-label={`${title}: live demo(opens in a new tab)`}
               className="text-text-2 hover:text-text-1"
             >
               Demo ↗
@@ -84,6 +110,7 @@ export function ProjectCard({ project, lead = false }: { project: Project; lead?
               href={links.code}
               target="_blank"
               rel="noopener noreferrer"
+              aria-label={`${title}: source code(opens in a new tab)`}
               className="text-text-2 hover:text-text-1"
             >
               Code ↗

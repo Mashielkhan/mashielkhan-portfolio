@@ -38,6 +38,7 @@ export function Contact() {
               target="_blank"
               rel="noopener noreferrer"
               className={link}
+              aria-label="GitHub profile (opens in a new tab)"
             >
               GitHub ↗
             </a>
@@ -47,6 +48,7 @@ export function Contact() {
               target="_blank"
               rel="noopener noreferrer"
               className={link}
+              aria-label="LinkedIn profile (opens in a new tab)"
             >
               LinkedIn ↗
             </a>

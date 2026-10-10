@@ -1,3 +1,4 @@
+
 import type { Metadata, Viewport } from "next";
 import { GeistSans } from "geist/font/sans";
 import { GeistMono } from "geist/font/mono";
@@ -11,16 +12,29 @@ import { MobileBar } from "@/components/layout/mobile-bar";
 
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
-  title: { default: `${site.name} | ${site.shortTagline}`, template: `%s | ${site.name}` },
+  title: {
+    default: `${site.name} | ${site.shortTagline}`,
+    template: `%s | ${site.name}`,
+  },
   description: site.description,
+  applicationName: site.name,
+  authors: [{ name: site.name, url: site.url }],
   openGraph: {
     type: "website",
+    locale: "en_US",
+    siteName: site.name,
     title: `${site.name} | ${site.shortTagline}`,
     description: site.description,
-    siteName: site.name,
   },
-  twitter: { card: "summary_large_image" },
-  robots: { index: true, follow: true },
+  twitter: {
+    card: "summary_large_image",
+    title: `${site.name} | ${site.shortTagline}`,
+    description: site.description,
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
 };
 
 export const viewport: Viewport = {
@@ -28,7 +42,11 @@ export const viewport: Viewport = {
   colorScheme: "dark",
 };
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return (
     <html lang="en" className={`${GeistSans.variable} ${GeistMono.variable}`}>
       <body>
@@ -41,7 +59,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 
         <MotionProvider>
           <Header />
-          <main id="main">{children}</main>
+          <main id="main" tabIndex={-1} className="outline-none">
+            {children}
+          </main>
           <Footer />
           <MobileBar />
         </MotionProvider>
@@ -49,7 +69,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <SpotlightProvider />
 
         <noscript>
-          <style>{"[data-reveal]{opacity:1!important;transform:none!important}"}</style>
+          <style>
+            {"[data-reveal]{opacity:1!important;transform:none!important}"}
+          </style>
         </noscript>
       </body>
     </html>
