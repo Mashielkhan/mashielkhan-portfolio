@@ -3,12 +3,14 @@ import { Chip } from "@/components/ui/chip";
 import { site } from "@/content/site";
 import { timeline } from "@/content/timeline";
 import { Timeline } from "./timeline";
+import { Terminal } from "@/components/terminal/terminal";
+import { Reveal } from "@/components/motion/reveal";
 
 export function About() {
   return (
     <section id="about" aria-labelledby="about-title" className="bg-bg-1 section-y">
       <Container className="grid gap-16 lg:grid-cols-12">
-        <div className="lg:col-span-5">
+        <Reveal className="lg:col-span-5">
           <p className="font-mono text-label text-text-3 uppercase">05 — About</p>
 
           <h2 id="about-title" className="mt-3 text-h2 text-balance">
@@ -36,7 +38,11 @@ export function About() {
               </li>
             ))}
           </ul>
-        </div>
+
+          <div className="mt-8">
+            <Terminal />
+          </div>
+        </Reveal>
 
         <div className="lg:col-span-7 lg:pl-8">
           <Timeline items={timeline} />

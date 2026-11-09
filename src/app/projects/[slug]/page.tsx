@@ -23,7 +23,7 @@ export async function generateMetadata({
 
   if (!project) return {};
 
-  const canonical = `/${slug}`;
+  const canonical = `/projects/${slug}`;
 
   return {
     title: project.title,

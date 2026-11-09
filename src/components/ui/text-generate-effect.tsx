@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect } from "react";
-import { motion, stagger, useAnimate } from "motion/react";
+import { m, stagger, useAnimate } from "motion/react";
 import { cn } from "@/lib/utils";
 
 export const TextGenerateEffect = ({
@@ -33,9 +33,9 @@ export const TextGenerateEffect = ({
   }, [animate, duration, filter]);
 
   const renderWords = () => (
-    <motion.div ref={scope}>
+    <m.div ref={scope}>
       {wordsArray.map((word, idx) => (
-        <motion.span
+        <m.span
           key={word + idx}
           className="dark:text-white text-black opacity-0"
           style={{
@@ -43,9 +43,9 @@ export const TextGenerateEffect = ({
           }}
         >
           {word}{" "}
-        </motion.span>
+        </m.span>
       ))}
-    </motion.div>
+    </m.div>
   );
 
   return (

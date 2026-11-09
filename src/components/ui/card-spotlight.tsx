@@ -1,6 +1,6 @@
 "use client";
 
-import { useMotionValue, motion, useMotionTemplate } from "motion/react";
+import { useMotionValue, m, useMotionTemplate } from "motion/react";
 import React, { MouseEvent as ReactMouseEvent, useState } from "react";
 import { CanvasRevealEffect } from "@/components/ui/canvas-reveal-effect";
 import { cn } from "@/lib/utils";
@@ -43,7 +43,7 @@ export const CardSpotlight = ({
       onMouseLeave={handleMouseLeave}
       {...props}
     >
-      <motion.div
+      <m.div
         className="pointer-events-none absolute z-0 -inset-px rounded-md opacity-0 transition duration-300 group-hover/spotlight:opacity-100"
         style={{
           backgroundColor: color,
@@ -67,7 +67,7 @@ export const CardSpotlight = ({
             dotSize={3}
           />
         )}
-      </motion.div>
+      </m.div>
       {children}
     </div>
   );

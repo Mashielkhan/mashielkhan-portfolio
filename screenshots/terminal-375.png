@@ -1,0 +1,114 @@
+- generic [ref=f22e1]:
+  - generic [active]:
+    - generic [ref=f22e4]:
+      - generic [ref=f22e5]:
+        - navigation [ref=f22e7]:
+          - button [disabled] [ref=f22e8]:
+            - img "previous" [ref=f22e9]
+          - generic [ref=f22e11]:
+            - generic [ref=f22e12]: 1/
+            - generic [ref=f22e13]: "1"
+          - button [disabled] [ref=f22e14]:
+            - img "next" [ref=f22e15]
+        - generic [ref=f22e18]:
+          - generic "Latest available version is detected (16.4.5)." [ref=f22e21]: Next.js 16.4.5
+          - generic [ref=f22e22]: Turbopack
+      - dialog "Runtime Error" [ref=f22e24]:
+        - generic [ref=f22e27]:
+          - generic [ref=f22e29]:
+            - generic [ref=f22e30]:
+              - generic [ref=f22e31]: Runtime Error
+              - generic [ref=f22e33]:
+                - button "Copy Error Info" [ref=f22e34] [cursor=pointer]
+                - button "No related documentation found" [disabled] [ref=f22e37]
+                - button "Attach Node.js inspector" [ref=f22e40] [cursor=pointer]
+            - generic [ref=f22e50]:
+              - text: "You have rendered a `motion` component within a `LazyMotion` component. This will break tree shaking. Import and render a `m` component instead.. For more information and steps for solving, visit"
+              - link "https://motion.dev/troubleshooting/lazy-strict-mode" [ref=f22e51] [cursor=pointer]:
+                - /url: https://motion.dev/troubleshooting/lazy-strict-mode
+          - generic [ref=f22e52]:
+            - generic [ref=f22e53]:
+              - paragraph [ref=f22e55]:
+                - generic [ref=f22e60]: src/components/motion/page-transition.tsx (11:7) @ PageTransition
+                - button "Open in editor" [ref=f22e61] [cursor=pointer]
+              - generic [ref=f22e65]:
+                - generic [ref=f22e66]: 9 | return (
+                - generic [ref=f22e67]: 10 | <AnimatePresence mode="wait">
+                - generic [ref=f22e68]: "> 11 | <motion.div"
+                - generic [ref=f22e69]: "| ^"
+                - generic [ref=f22e70]: "12 | key={pathname}"
+                - generic [ref=f22e71]: "13 | initial={{ opacity: 0, y: 10 }}"
+                - generic [ref=f22e72]: "14 | animate={{ opacity: 1, y: 0 }}"
+            - generic [ref=f22e73]:
+              - generic [ref=f22e74]:
+                - paragraph [ref=f22e75]:
+                  - text: Call Stack
+                  - generic [ref=f22e76]: "16"
+                - button "Hide 14 ignore-listed frame(s)" [ref=f22e77] [cursor=pointer]
+              - generic [ref=f22e80]:
+                - generic [ref=f22e81]: invariant
+                - text: node_modules/motion-utils/src/errors.ts (21:19)
+              - generic [ref=f22e82]:
+                - generic [ref=f22e83]: useStrictMode
+                - text: node_modules/framer-motion/src/motion/index.tsx (199:9)
+              - generic [ref=f22e84]:
+                - generic [ref=f22e85]: MotionDOMComponent
+                - text: node_modules/framer-motion/src/motion/index.tsx (113:13)
+              - generic [ref=f22e86]:
+                - generic [ref=f22e87]: Object.react_stack_bottom_frame
+                - text: node_modules/next/dist/compiled/react-dom/cjs/react-dom-client.development.js (28587:20)
+              - generic [ref=f22e88]:
+                - generic [ref=f22e89]: renderWithHooks
+                - text: node_modules/next/dist/compiled/react-dom/cjs/react-dom-client.development.js (8030:22)
+              - generic [ref=f22e90]:
+                - generic [ref=f22e91]: updateForwardRef
+                - text: node_modules/next/dist/compiled/react-dom/cjs/react-dom-client.development.js (10123:19)
+              - generic [ref=f22e92]:
+                - generic [ref=f22e93]: beginWork
+                - text: node_modules/next/dist/compiled/react-dom/cjs/react-dom-client.development.js (12536:18)
+              - generic [ref=f22e94]:
+                - generic [ref=f22e95]: runWithFiberInDEV
+                - text: node_modules/next/dist/compiled/react-dom/cjs/react-dom-client.development.js (1045:30)
+              - generic [ref=f22e96]:
+                - generic [ref=f22e97]: performUnitOfWork
+                - text: node_modules/next/dist/compiled/react-dom/cjs/react-dom-client.development.js (19179:22)
+              - generic [ref=f22e98]:
+                - generic [ref=f22e99]: workLoopSync
+                - text: node_modules/next/dist/compiled/react-dom/cjs/react-dom-client.development.js (19007:41)
+              - generic [ref=f22e100]:
+                - generic [ref=f22e101]: renderRootSync
+                - text: node_modules/next/dist/compiled/react-dom/cjs/react-dom-client.development.js (18988:11)
+              - generic [ref=f22e102]:
+                - generic [ref=f22e103]: performWorkOnRoot
+                - text: node_modules/next/dist/compiled/react-dom/cjs/react-dom-client.development.js (18094:35)
+              - generic [ref=f22e104]:
+                - generic [ref=f22e105]: performWorkOnRootViaSchedulerTask
+                - text: node_modules/next/dist/compiled/react-dom/cjs/react-dom-client.development.js (20668:7)
+              - generic [ref=f22e106]:
+                - generic [ref=f22e107]: MessagePort.performWorkUntilDeadline
+                - text: node_modules/next/dist/compiled/scheduler/cjs/scheduler.development.js (45:48)
+              - generic [ref=f22e108]:
+                - generic [ref=f22e109]:
+                  - text: PageTransition
+                  - button "Open PageTransition in editor" [ref=f22e110] [cursor=pointer]
+                - text: src/components/motion/page-transition.tsx (11:7)
+              - generic [ref=f22e113]:
+                - generic [ref=f22e114]:
+                  - text: RootLayout
+                  - button "Open RootLayout in editor" [ref=f22e115] [cursor=pointer]
+                - text: src\app\layout.tsx (69:13)
+    - generic [ref=f22e122] [cursor=pointer]:
+      - button "Open Next.js Dev Tools" [ref=f22e123]
+      - generic [ref=f22e127]:
+        - button "Open issues overlay" [ref=f22e128]:
+          - generic [ref=f22e129]:
+            - generic [aria-hidden] [ref=f22e130]: "0"
+            - generic [ref=f22e131]: "1"
+          - generic [ref=f22e132]: Issue
+        - button "Collapse issues badge" [ref=f22e133]
+  - generic [ref=f22e137]:
+    - heading "This page couldn’t load" [level=1] [ref=f22e140]
+    - paragraph [ref=f22e141]: Reload to try again, or go back.
+    - generic [ref=f22e142]:
+      - button "Reload" [ref=f22e144] [cursor=pointer]
+      - button "Back" [ref=f22e145] [cursor=pointer]

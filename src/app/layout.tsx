@@ -8,9 +8,11 @@ import { Footer } from "@/components/layout/footer";
 import { site } from "@/content/site";
 import { MotionProvider } from "@/components/motion/motion-provider";
 import { SpotlightProvider } from "@/components/motion/spotlight-provider";
+import { CommandPalette } from "@/components/layout/command-palette";
 import { MobileBar } from "@/components/layout/mobile-bar";
 import { JetBrains_Mono } from "next/font/google";
 import { cn } from "@/lib/utils";
+import { PageTransition } from "@/components/motion/page-transition";
 
 const jetbrainsMono = JetBrains_Mono({ subsets: ['latin'], variable: '--font-mono' });
 
@@ -64,13 +66,14 @@ export default function RootLayout({
         <MotionProvider>
           <Header />
           <main id="main" tabIndex={-1} className="outline-none">
-            {children}
+            <PageTransition>{children}</PageTransition>
           </main>
           <Footer />
           <MobileBar />
         </MotionProvider>
 
         <SpotlightProvider />
+        <CommandPalette />
 
         <noscript>
           <style>

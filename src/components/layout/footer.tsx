@@ -1,9 +1,18 @@
 import { Container } from "@/components/ui/container";
 import { site } from "@/content/site";
+import * as m from "motion/react-m";
+import { fadeInUp, viewportOnceSmall } from "@/lib/motion";
 
 export function Footer() {
   return (
-    <footer id="site-footer" className="border-t border-border-subtle py-10">
+    <m.footer
+      id="site-footer"
+      initial="initial"
+      whileInView="animate"
+      viewport={viewportOnceSmall}
+      variants={fadeInUp}
+      className="border-t border-border-subtle py-10"
+    >
       <Container className="flex flex-col gap-3 text-small text-text-3 sm:flex-row sm:items-center sm:justify-between">
         <p>
           © {new Date().getFullYear()} {site.name} · Built with Next.js and Tailwind
@@ -23,6 +32,6 @@ export function Footer() {
           </a>
         </div>
       </Container>
-    </footer>
+    </m.footer>
   );
 }

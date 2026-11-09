@@ -1,7 +1,7 @@
 'use client';
 
 import * as React from 'react';
-import { motion, type HTMLMotionProps } from 'motion/react';
+import { m, type HTMLMotionProps } from 'motion/react';
 
 import {
   Slot,
@@ -42,7 +42,7 @@ function Button({
   }
 
   return (
-    <motion.button
+    <m.button
       {...props}
       className={buttonClassName}
       whileTap={{ scale: tapScale }}

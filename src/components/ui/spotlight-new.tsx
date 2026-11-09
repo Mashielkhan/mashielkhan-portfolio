@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import { motion } from "motion/react";
+import { m } from "motion/react";
 
 type SpotlightProps = {
   gradientFirst?: string;
@@ -26,7 +26,7 @@ export const Spotlight = ({
   xOffset = 100,
 }: SpotlightProps = {}) => {
   return (
-    <motion.div
+    <m.div
       initial={{
         opacity: 0,
       }}
@@ -38,7 +38,7 @@ export const Spotlight = ({
       }}
       className="pointer-events-none absolute inset-0 h-full w-full"
     >
-      <motion.div
+      <m.div
         animate={{
           x: [0, xOffset, 0],
         }}
@@ -79,9 +79,9 @@ export const Spotlight = ({
           }}
           className={`absolute top-0 left-0 origin-top-left`}
         />
-      </motion.div>
+      </m.div>
 
-      <motion.div
+      <m.div
         animate={{
           x: [0, -xOffset, 0],
         }}
@@ -122,7 +122,7 @@ export const Spotlight = ({
           }}
           className={`absolute top-0 right-0 origin-top-right`}
         />
-      </motion.div>
-    </motion.div>
+      </m.div>
+    </m.div>
   );
 };

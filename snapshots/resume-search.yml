@@ -1,0 +1,90 @@
+Found 6 matches for "Resume":
+
+- generic [ref=e1]:
+  - banner [ref=e3]:
+    - generic [ref=e4]:
+      - navigation "Primary" [ref=e6]:
+        ...
+        - link "About" [ref=e10] [cursor=pointer]:
+          - /url: /#about
+        - link "Contact" [ref=e11] [cursor=pointer]:
+          - /url: /#contact
+      - link "Resume" [ref=e13] [cursor=pointer]:
+        - /url: https://res.cloudinary.com/ahm6zflr/image/upload/v1791897291/CV_of_MASHIEL_1__2.pdf
+  - main [ref=e14]:
+    - generic [ref=e626]:
+
+----
+
+- generic [ref=e1]:
+  - main [ref=e14]:
+    - generic [ref=e626]:
+      - generic [ref=e631]:
+        - generic [ref=e641]:
+          - link "View my work" [ref=e643] [cursor=pointer]:
+            - /url: "#work"
+            - text: View my work
+            - generic [aria-hidden] [ref=e644]: →
+          - link "Download resume" [ref=e646] [cursor=pointer]:
+            - /url: https://res.cloudinary.com/ahm6zflr/image/upload/v1791897291/CV_of_MASHIEL_1__2.pdf
+        - list "Selected projects" [ref=e647]:
+          - listitem [ref=e648]:
+
+----
+
+- generic [ref=e1]:
+  - main [ref=e14]:
+    - generic [ref=e626]:
+      - region [ref=e656]:
+        - generic [ref=e657]:
+          - generic [ref=e661]:
+            - generic [ref=e690]:
+              - article [ref=e692]:
+                - generic [ref=e693]:
+                  - generic [ref=e696]:
+                    - generic [ref=e697]:
+                      - heading [level=3] [ref=e698]:
+                        - link "TalentLens AI" [ref=e699] [cursor=pointer]:
+                          - /url: /projects/talentlens-ai
+                      - paragraph [ref=e700]: A privacy-conscious resume analyzer and job matcher, leveraging explainable NLP scoring to improve hiring outcomes.
+                    - paragraph [ref=e701]: Provides explainable AI scoring for job applicants
+                    - paragraph [ref=e702]: Role · Fullstack ML Engineer
+                    - list [ref=e703]:
+
+----
+
+- generic [ref=e1]:
+  - main [ref=e14]:
+    - generic [ref=e626]:
+      - region [ref=e1149]:
+        - generic [ref=e1150]:
+          - list [ref=e1180]:
+            - listitem [ref=e1195]:
+              - paragraph [ref=e1197]: "2026"
+              - heading "Advanced AI and backend engineering" [level=3] [ref=e1198]
+              - paragraph [ref=e1199]: Open-sourced the C# .NET 8 Library MCP Server, built an AI-powered resume analyzer (TalentLens AI), developed a mobile AI assistant (StuddyBuddy.AI), and launched the Electron AI Engine desktop application.
+      - region [ref=e1200]:
+        - generic [ref=e1201]:
+          - heading "Now" [level=2] [ref=e1202]
+          - generic [ref=e1203]:
+            - generic [ref=e1204]:
+              - term [ref=e1205]: Building
+              - definition [ref=e1206]: TalentLens AI (resume analyzer & job matcher) · StuddyBuddy.AI (mobile study assistant) · Library MCP Server (.NET 8 library management)
+            - generic [ref=e1207]:
+              - term [ref=e1208]: Learning
+              - definition [ref=e1209]: Flutter · Dart · AI/ML · Cloud Computing · Next.js 16.4.5 · TypeScript · Tailwind CSS
+
+----
+
+- generic [ref=e1]:
+  - main [ref=e14]:
+    - generic [ref=e626]:
+      - region [ref=e1211]:
+        - generic [ref=e1213]:
+          - generic [ref=e1217]:
+            - link "Email me" [ref=e1218] [cursor=pointer]:
+              - /url: mailto:mashielkhan2@gmail.com
+            - link "Resume" [ref=e1219] [cursor=pointer]:
+              - /url: https://res.cloudinary.com/ahm6zflr/image/upload/v1791897291/CV_of_MASHIEL_1__2.pdf
+          - generic [ref=e1220]:
+            - link "GitHub profile (opens in a new tab)" [ref=e1221] [cursor=pointer]:

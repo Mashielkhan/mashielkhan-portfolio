@@ -1,0 +1,102 @@
+Total messages: 10 (Errors: 7, Warnings: 0)
+Returning 7 messages for level "error"
+
+[ERROR] Failed to load resource: the server responded with a status of 500 (Internal Server Error) @ http://localhost:3000/:0
+[ERROR] Refused to execute script from 'http://localhost:3000/_next/static/development/_clientMiddlewareManifest.js' because its MIME type ('application/json') is not executable, and strict MIME type checking is enabled. @ http://localhost:3000/:0
+[ERROR] ./src/components/motion/page-transition.tsx:19:20
+Error: Expected '</', got 'jsx text'
+  17 |       >
+  18 |         {children}
+> 19 |       </motion.div>
+     |                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 20 |     </AnimatePresence>
+     | ^^^^
+  21 |   );
+  22 | }
+  23 |
+
+Parsing ecmascript source code failed
+
+Import trace:
+  Server Component:
+    ./src/components/motion/page-transition.tsx
+    ./src/app/layout.tsx @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1gdrd03q-xsfc._.js:1801
+[ERROR] ./src/components/motion/page-transition.tsx:19:20
+Error: Expected '</', got 'jsx text'
+  17 |       >
+  18 |         {children}
+> 19 |       </motion.div>
+     |                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 20 |     </AnimatePresence>
+     | ^^^^
+  21 |   );
+  22 | }
+  23 |
+
+Parsing ecmascript source code failed
+
+Import trace:
+  Server Component:
+    ./src/components/motion/page-transition.tsx
+    ./src/app/layout.tsx @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1gdrd03q-xsfc._.js:1801
+[ERROR] ./src/components/motion/page-transition.tsx:19:20
+Error: Expected '</', got 'jsx text'
+  17 |       >
+  18 |         {children}
+> 19 |       </motion.div>
+     |                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 20 |     </AnimatePresence>
+     | ^^^^
+  21 |   );
+  22 | }
+  23 |
+
+Parsing ecmascript source code failed
+
+Import trace:
+  Server Component:
+    ./src/components/motion/page-transition.tsx
+    ./src/app/layout.tsx @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1gdrd03q-xsfc._.js:1801
+[ERROR] ./src/components/motion/page-transition.tsx:19:20
+Error: Expected '</', got 'jsx text'
+  17 |       >
+  18 |         {children}
+> 19 |       </motion.div>
+     |                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 20 |     </AnimatePresence>
+     | ^^^^
+  21 |   );
+  22 | }
+  23 |
+
+Parsing ecmascript source code failed
+
+Import trace:
+  Server Component:
+    ./src/components/motion/page-transition.tsx
+    ./src/app/layout.tsx @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1gdrd03q-xsfc._.js:1801
+Error: ./src/components/motion/page-transition.tsx:19:20
+Error: Expected '</', got 'jsx text'
+  17 |       >
+  18 |         {children}
+> 19 |       </motion.div>
+     |                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 20 |     </AnimatePresence>
+     | ^^^^
+  21 |   );
+  22 | }
+  23 |
+
+Parsing ecmascript source code failed
+
+Import trace:
+  Server Component:
+    ./src/components/motion/page-transition.tsx
+    ./src/app/layout.tsx
+
+
+    at Object.getCompilationErrors (file://C:\Users\hp\Documents\portfolio-new\node_modules\next\dist\server\dev\hot-reloader-turbopack.js:1566:37)
+    at DevBundlerService.getCompilationError (file://C:\Users\hp\Documents\portfolio-new\node_modules\next\dist\server\lib\dev-bundler-service.js:66:55)
+    at DevServer.getCompilationError (file://C:\Users\hp\Documents\portfolio-new\node_modules\next\dist\server\dev\next-dev-server.js:695:42)
+    at DevServer.findPageComponents (file://C:\Users\hp\Documents\portfolio-new\node_modules\next\dist\server\dev\next-dev-server.js:665:43)
+    at async DevServer.renderErrorToResponseImpl (file://C:\Users\hp\Documents\portfolio-new\node_modules\next\dist\server\base-server.js:2068:26)

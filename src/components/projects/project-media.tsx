@@ -1,9 +1,9 @@
 import Image from "next/image";
 import type { Project } from "@/content/types";
 import { HoverVideo } from "./hover-video";
+import { cn } from "@/lib/cn";
 
-const zoom =
-  "transition-transform duration-(--dur-slow) ease-standard motion-safe:group-hover:scale-[1.03]";
+const zoom = "transition-transform duration-(--dur-slow) ease-standard motion-safe:group-hover:scale-[1.03]";
 
 export function ProjectMedia({ project }: { project: Project }) {
   if (project.media) {
@@ -15,7 +15,7 @@ export function ProjectMedia({ project }: { project: Project }) {
           width={project.media.width}
           height={project.media.height}
           sizes="(min-width: 1024px) 640px, 100vw"
-          className={`h - full w - full object - cover ${zoom} `}
+          className={cn("h-full w-full object-cover", zoom)}
         />
 
         {project.media.preview && <HoverVideo src={project.media.preview} />}
@@ -26,7 +26,7 @@ export function ProjectMedia({ project }: { project: Project }) {
   return (
     <div
       aria-hidden
-      className={`h - full w - full items - center justify - center overflow - bg - bg - 3 relative flex hidden ${zoom} `}
+      className={cn("h-full w-full items-center justify-center overflow-hidden bg-bg-3 relative flex hidden", zoom)}
     >
       <div className="absolute inset-0 bg-grid-lines" />
       <span className="relative font-mono text-label text-text-4 uppercase">

@@ -1,0 +1,550 @@
+- generic [active] [ref=f12e1]:
+  - link "Skip to content" [ref=f12e2] [cursor=pointer]:
+    - /url: "#main"
+  - banner [ref=f12e3]:
+    - generic [ref=f12e4]:
+      - link "Mashiel Khan, home" [ref=f12e5] [cursor=pointer]:
+        - /url: /
+        - text: MK
+      - navigation "Primary" [ref=f12e6]:
+        - link "Work" [ref=f12e7] [cursor=pointer]:
+          - /url: /#work
+        - link "Approach" [ref=f12e8] [cursor=pointer]:
+          - /url: /#approach
+        - link "Skills" [ref=f12e9] [cursor=pointer]:
+          - /url: /#skills
+        - link "About" [ref=f12e10] [cursor=pointer]:
+          - /url: /#about
+        - link "Contact" [ref=f12e11] [cursor=pointer]:
+          - /url: /#contact
+      - link "Resume" [ref=f12e13] [cursor=pointer]:
+        - /url: https://res.cloudinary.com/ahm6zflr/image/upload/v1791897291/CV_of_MASHIEL_1__2.pdf
+  - main [ref=f12e14]:
+    - generic [ref=f12e15]:
+      - generic [ref=f12e20]:
+        - paragraph [ref=f12e22]: Open to internships
+        - paragraph [ref=f12e24]: Mashiel Khan · Lahore, Pakistan
+        - heading "Software Developer Building AI-Powered Products for Real Businesses" [level=1] [ref=f12e25]:
+          - generic [ref=f12e26]: Software Developer
+          - generic [ref=f12e27]: Building AI-Powered Products
+          - generic [ref=f12e28]: for Real Businesses
+        - paragraph [ref=f12e29]: Computer Science student at UCP focused on building practical software solutions, AI-powered applications, and business systems. Current projects include TailorNex, a tailoring marketplace, a paper distribution ERP, and machine learning tools.
+        - generic [ref=f12e30]:
+          - link "View my work" [ref=f12e32] [cursor=pointer]:
+            - /url: "#work"
+            - text: View my work
+            - generic [aria-hidden] [ref=f12e33]: →
+          - link "Download resume" [ref=f12e35] [cursor=pointer]:
+            - /url: https://res.cloudinary.com/ahm6zflr/image/upload/v1791897291/CV_of_MASHIEL_1__2.pdf
+        - list "Selected projects" [ref=f12e36]:
+          - listitem [ref=f12e37]:
+            - generic [ref=f12e38]: Library MCP Server
+          - listitem [ref=f12e39]:
+            - generic [ref=f12e40]: TalentLens AI
+          - listitem [ref=f12e41]:
+            - generic [ref=f12e42]: StuddyBuddy.AI
+          - listitem [ref=f12e43]:
+            - generic [ref=f12e44]: TailorNex
+      - region [ref=f12e45]:
+        - generic [ref=f12e46]:
+          - generic [ref=f12e47]:
+            - paragraph [ref=f12e48]: 01 — Selected work
+            - heading "Products built for real problems." [level=2] [ref=f12e49]
+          - generic [ref=f12e50]:
+            - article [ref=f12e52]:
+              - generic [ref=f12e53]: Shipped
+              - generic [ref=f12e55]:
+                - heading [level=3] [ref=f12e56]:
+                  - link "Library MCP Server" [ref=f12e57] [cursor=pointer]:
+                    - /url: /projects/library-mcp-server
+                - paragraph [ref=f12e58]: A high-performance library management system built with .NET 8, utilizing the Model Context Protocol (MCP) for AI client integration.
+                - paragraph [ref=f12e59]: Role · Backend Engineer
+                - list [ref=f12e60]:
+                  - listitem [ref=f12e61]:
+                    - generic [ref=f12e62]: .NET 8
+                  - listitem [ref=f12e63]:
+                    - generic [ref=f12e64]: C#
+                  - listitem [ref=f12e65]:
+                    - generic [ref=f12e66]: Entity Framework Core
+                  - listitem [ref=f12e67]:
+                    - generic [ref=f12e68]: SQL Server
+                  - listitem [ref=f12e69]:
+                    - generic [ref=f12e70]: MCP
+                - generic [ref=f12e71]:
+                  - generic [ref=f12e72]:
+                    - text: Case study
+                    - generic [aria-hidden] [ref=f12e73]: →
+                  - 'link "Library MCP Server: source code(opens in a new tab)" [ref=f12e74] [cursor=pointer]':
+                    - /url: https://github.com/Mashielkhan/library-mcp-server
+                    - text: Code ↗
+            - generic [ref=f12e75]:
+              - article [ref=f12e77]:
+                - generic [ref=f12e78]: Shipped
+                - generic [ref=f12e80]:
+                  - heading [level=3] [ref=f12e81]:
+                    - link "TalentLens AI" [ref=f12e82] [cursor=pointer]:
+                      - /url: /projects/talentlens-ai
+                  - paragraph [ref=f12e83]: A privacy-conscious resume analyzer and job matcher, leveraging explainable NLP scoring to improve hiring outcomes.
+                  - paragraph [ref=f12e84]: Provides explainable AI scoring for job applicants
+                  - paragraph [ref=f12e85]: Role · Fullstack ML Engineer
+                  - list [ref=f12e86]:
+                    - listitem [ref=f12e87]:
+                      - generic [ref=f12e88]: Next.js
+                    - listitem [ref=f12e89]:
+                      - generic [ref=f12e90]: FastAPI
+                    - listitem [ref=f12e91]:
+                      - generic [ref=f12e92]: PostgreSQL
+                    - listitem [ref=f12e93]:
+                      - generic [ref=f12e94]: pgvector
+                    - listitem [ref=f12e95]:
+                      - generic [ref=f12e96]: NLP
+                  - generic [ref=f12e97]:
+                    - generic [ref=f12e98]:
+                      - text: Case study
+                      - generic [aria-hidden] [ref=f12e99]: →
+                    - 'link "TalentLens AI: source code(opens in a new tab)" [ref=f12e100] [cursor=pointer]':
+                      - /url: https://github.com/Mashielkhan/talentlens-ai
+                      - text: Code ↗
+              - article [ref=f12e102]:
+                - generic [ref=f12e103]: Shipped
+                - generic [ref=f12e105]:
+                  - heading [level=3] [ref=f12e106]:
+                    - link "StuddyBuddy.AI" [ref=f12e107] [cursor=pointer]:
+                      - /url: /projects/studdybuddy-ai
+                  - paragraph [ref=f12e108]: An AI-powered study assistant application designed to enhance learning efficiency through interactive, intelligent feedback.
+                  - paragraph [ref=f12e109]: Role · Developer
+                  - list [ref=f12e110]:
+                    - listitem [ref=f12e111]:
+                      - generic [ref=f12e112]: TypeScript
+                  - generic [ref=f12e113]:
+                    - generic [ref=f12e114]:
+                      - text: Case study
+                      - generic [aria-hidden] [ref=f12e115]: →
+                    - 'link "StuddyBuddy.AI: source code(opens in a new tab)" [ref=f12e116] [cursor=pointer]':
+                      - /url: https://github.com/Mashielkhan/StuddyBuddy.AI
+                      - text: Code ↗
+              - article [ref=f12e118]:
+                - generic [ref=f12e119]: In development
+                - generic [ref=f12e121]:
+                  - heading [level=3] [ref=f12e122]:
+                    - link "TailorNex" [ref=f12e123] [cursor=pointer]:
+                      - /url: /projects/tailornex
+                  - paragraph [ref=f12e124]: A full-stack mobile application designed to connect customers with tailors through a seamless experience of custom design exploration, guided measurements, bidding, and real-time order progress tracking. TailorNex leverages Flutter for cross-platform mobile development and FastAPI for backend services, ensuring scalability and performance.
+                  - paragraph [ref=f12e125]: In development with a focus on user experience and scalability
+                  - paragraph [ref=f12e126]: Role · Product Designer, System Analyst, Developer · Final-year project, team of three
+                  - list [ref=f12e127]:
+                    - listitem [ref=f12e128]:
+                      - generic [ref=f12e129]: Flutter
+                    - listitem [ref=f12e130]:
+                      - generic [ref=f12e131]: FastAPI
+                    - listitem [ref=f12e132]:
+                      - generic [ref=f12e133]: DynamoDB
+                    - listitem [ref=f12e134]:
+                      - generic [ref=f12e135]: AWS Lambda
+                    - listitem [ref=f12e136]:
+                      - generic [ref=f12e137]: AWS S3
+                  - generic [ref=f12e138]:
+                    - generic [ref=f12e139]:
+                      - text: Case study
+                      - generic [aria-hidden] [ref=f12e140]: →
+                    - 'link "TailorNex: source code(opens in a new tab)" [ref=f12e141] [cursor=pointer]':
+                      - /url: https://github.com/Mashielkhan/tailornex-mobile
+                      - text: Code ↗
+          - link "All projects" [ref=f12e144] [cursor=pointer]:
+            - /url: /projects
+            - text: All projects
+            - generic [aria-hidden] [ref=f12e145]: →
+      - region [ref=f12e146]:
+        - generic [ref=f12e147]:
+          - generic [ref=f12e148]:
+            - paragraph [ref=f12e149]: 02 — Approach
+            - heading "I start with the business, then pick the technology." [level=2] [ref=f12e150]
+          - list [ref=f12e151]:
+            - listitem [ref=f12e152]:
+              - generic [ref=f12e153]: "01"
+              - heading "Start with the people who live with the problem" [level=3] [ref=f12e154]
+              - paragraph [ref=f12e155]: Features come second. For TailorNex, I design around how tailors and customers actually work together.
+              - paragraph [ref=f12e156]: Evidence · TailorNex
+            - listitem [ref=f12e157]:
+              - generic [ref=f12e158]: "02"
+              - heading "Model the workflow before the screens" [level=3] [ref=f12e159]
+              - paragraph [ref=f12e160]: Software should mirror how a business really runs. I map the real process first, then design the system around it.
+              - paragraph [ref=f12e161]: Evidence · Paper ERP
+            - listitem [ref=f12e162]:
+              - generic [ref=f12e163]: "03"
+              - heading "Report results honestly" [level=3] [ref=f12e164]
+              - paragraph [ref=f12e165]: A score only means something alongside how it was measured. I say what was measured, how, and what is not measured yet.
+              - paragraph [ref=f12e166]: Evidence · Smart House Price Prediction
+            - listitem [ref=f12e167]:
+              - generic [ref=f12e168]: "04"
+              - heading "Ship, then improve" [level=3] [ref=f12e169]
+              - paragraph [ref=f12e170]: Working software teaches faster than plans. I build in small steps and improve as I learn.
+              - paragraph [ref=f12e171]: Evidence · AppVision React · Neon Trail
+      - region [ref=f12e172]:
+        - generic [ref=f12e173]:
+          - generic [ref=f12e174]:
+            - paragraph [ref=f12e175]: 03 — Skills
+            - heading "What I use, and where I've used it." [level=2] [ref=f12e176]
+          - list [ref=f12e177]:
+            - listitem [ref=f12e178]:
+              - heading "AI & Machine Learning" [level=3] [ref=f12e179]
+              - paragraph [ref=f12e180]: Developing and deploying AI/ML models for real-world applications.
+              - list [ref=f12e181]:
+                - listitem [ref=f12e182]:
+                  - generic [ref=f12e183]: Python
+                - listitem [ref=f12e185]:
+                  - generic [ref=f12e186]: Machine Learning
+                - listitem [ref=f12e188]:
+                  - generic [ref=f12e189]: Scikit-Learn
+                - listitem [ref=f12e191]:
+                  - generic [ref=f12e192]: Data Analysis
+                - listitem [ref=f12e194]:
+                  - generic [ref=f12e195]: Streamlit
+                - listitem [ref=f12e197]:
+                  - generic [ref=f12e198]: Stable Diffusion
+                - listitem [ref=f12e200]:
+                  - generic [ref=f12e201]: NLP
+                - listitem [ref=f12e203]:
+                  - generic [ref=f12e204]: pgvector
+              - paragraph [ref=f12e206]: Used in Smart House Price Prediction System · TalentLens AI
+            - listitem [ref=f12e207]:
+              - heading "Backend Development" [level=3] [ref=f12e208]
+              - paragraph [ref=f12e209]: Building scalable and efficient backend systems.
+              - list [ref=f12e210]:
+                - listitem [ref=f12e211]:
+                  - generic [ref=f12e212]: FastAPI
+                - listitem [ref=f12e214]:
+                  - generic [ref=f12e215]: DynamoDB
+                - listitem [ref=f12e217]:
+                  - generic [ref=f12e218]: AWS Lambda
+                - listitem [ref=f12e220]:
+                  - generic [ref=f12e221]: AWS S3
+                - listitem [ref=f12e223]:
+                  - generic [ref=f12e224]: SQL
+                - listitem [ref=f12e226]:
+                  - generic [ref=f12e227]: .NET 8
+                - listitem [ref=f12e229]:
+                  - generic [ref=f12e230]: C#
+                - listitem [ref=f12e232]:
+                  - generic [ref=f12e233]: Entity Framework Core
+                - listitem [ref=f12e235]:
+                  - generic [ref=f12e236]: PostgreSQL
+              - paragraph [ref=f12e238]: Used in TailorNex · TalentLens AI · Library MCP Server
+            - listitem [ref=f12e239]:
+              - heading "Frontend Development" [level=3] [ref=f12e240]
+              - paragraph [ref=f12e241]: Creating responsive and interactive user interfaces.
+              - list [ref=f12e242]:
+                - listitem [ref=f12e243]:
+                  - generic [ref=f12e244]: React
+                - listitem [ref=f12e246]:
+                  - generic [ref=f12e247]: Next.js
+                - listitem [ref=f12e249]:
+                  - generic [ref=f12e250]: TypeScript
+                - listitem [ref=f12e252]:
+                  - generic [ref=f12e253]: Tailwind CSS
+                - listitem [ref=f12e255]:
+                  - generic [ref=f12e256]: HTML
+                - listitem [ref=f12e258]:
+                  - generic [ref=f12e259]: CSS
+              - paragraph [ref=f12e261]: Used in AppVision React · TalentLens AI · StuddyBuddy.AI
+            - listitem [ref=f12e262]:
+              - heading "Mobile Development" [level=3] [ref=f12e263]
+              - paragraph [ref=f12e264]: Developing cross-platform mobile applications.
+              - list [ref=f12e265]:
+                - listitem [ref=f12e266]:
+                  - generic [ref=f12e267]: Flutter
+                - listitem [ref=f12e269]:
+                  - generic [ref=f12e270]: Dart
+                - listitem [ref=f12e272]:
+                  - generic [ref=f12e273]: React Native
+                - listitem [ref=f12e275]:
+                  - generic [ref=f12e276]: Expo
+              - paragraph [ref=f12e278]: Used in TailorNex · StuddyBuddy.AI · ContentForge
+            - listitem [ref=f12e279]:
+              - heading "Cloud & DevOps" [level=3] [ref=f12e280]
+              - paragraph [ref=f12e281]: Deploying and managing cloud-based solutions.
+              - list [ref=f12e282]:
+                - listitem [ref=f12e283]:
+                  - generic [ref=f12e284]: AWS Cloud
+                - listitem [ref=f12e286]:
+                  - generic [ref=f12e287]: Firebase
+                - listitem [ref=f12e289]:
+                  - generic [ref=f12e290]: Git
+                - listitem [ref=f12e292]:
+                  - generic [ref=f12e293]: GitHub
+              - paragraph [ref=f12e295]: Used in TailorNex · Smart House Price Prediction System
+            - listitem [ref=f12e296]:
+              - heading "Programming Languages" [level=3] [ref=f12e297]
+              - paragraph [ref=f12e298]: Core programming languages used across projects.
+              - list [ref=f12e299]:
+                - listitem [ref=f12e300]:
+                  - generic [ref=f12e301]: Python
+                - listitem [ref=f12e303]:
+                  - generic [ref=f12e304]: JavaScript
+                - listitem [ref=f12e306]:
+                  - generic [ref=f12e307]: TypeScript
+                - listitem [ref=f12e309]:
+                  - generic [ref=f12e310]: C++
+                - listitem [ref=f12e312]:
+                  - generic [ref=f12e313]: Java
+            - listitem [ref=f12e315]:
+              - heading "Tools & Platforms" [level=3] [ref=f12e316]
+              - paragraph [ref=f12e317]: Additional tools and platforms for development and collaboration.
+              - list [ref=f12e318]:
+                - listitem [ref=f12e319]:
+                  - generic [ref=f12e320]: Jupyter
+                - listitem [ref=f12e322]:
+                  - generic [ref=f12e323]: WSL
+                - listitem [ref=f12e325]:
+                  - generic [ref=f12e326]: Vite
+          - generic [ref=f12e328]:
+            - generic [ref=f12e329]: "Learning now:"
+            - generic [ref=f12e330]: Flutter
+            - generic [ref=f12e332]: Dart
+            - generic [ref=f12e334]: AI/ML
+            - generic [ref=f12e336]: Cloud Computing
+            - generic [ref=f12e338]: Next.js 16.4.5
+            - generic [ref=f12e340]: TypeScript
+            - generic [ref=f12e342]: Tailwind CSS
+      - region [ref=f12e344]:
+        - generic [ref=f12e345]:
+          - generic [ref=f12e346]:
+            - paragraph [ref=f12e347]: 04 — More
+            - heading "More projects, and what's next." [level=2] [ref=f12e348]
+          - list [ref=f12e349]:
+            - listitem [ref=f12e350]:
+              - link "A.L.L.Y Assistive Language An assistive technology tool designed to provide real-time language support, aiming to break communication barriers. JavaScript Shipped" [ref=f12e351] [cursor=pointer]:
+                - /url: https://github.com/Mashielkhan/A.L.L.Y-Assistive-Language-Life-support-for-You
+                - generic [ref=f12e352]:
+                  - heading "A.L.L.Y Assistive Language" [level=3] [ref=f12e353]
+                  - paragraph [ref=f12e354]: An assistive technology tool designed to provide real-time language support, aiming to break communication barriers.
+                - list [ref=f12e355]:
+                  - listitem [ref=f12e356]:
+                    - generic [ref=f12e357]: JavaScript
+                - generic [ref=f12e359]:
+                  - generic [ref=f12e360]: Shipped
+                  - generic [aria-hidden] [ref=f12e361]: ↗
+            - listitem [ref=f12e362]:
+              - link "Electron AI Engine A desktop-based AI integration engine built with Electron, allowing for local AI processing and workflow automation. Python Electron Shipped" [ref=f12e363] [cursor=pointer]:
+                - /url: https://github.com/Mashielkhan/electron-ai-engine-hack
+                - generic [ref=f12e364]:
+                  - heading "Electron AI Engine" [level=3] [ref=f12e365]
+                  - paragraph [ref=f12e366]: A desktop-based AI integration engine built with Electron, allowing for local AI processing and workflow automation.
+                - list [ref=f12e367]:
+                  - listitem [ref=f12e368]:
+                    - generic [ref=f12e369]: Python
+                  - listitem [ref=f12e371]:
+                    - generic [ref=f12e372]: Electron
+                - generic [ref=f12e374]:
+                  - generic [ref=f12e375]: Shipped
+                  - generic [aria-hidden] [ref=f12e376]: ↗
+            - listitem [ref=f12e377]:
+              - link "Mapify A mapping application focused on visualization and location-based data services. JavaScript Shipped" [ref=f12e378] [cursor=pointer]:
+                - /url: https://github.com/Mashielkhan/Mapify
+                - generic [ref=f12e379]:
+                  - heading "Mapify" [level=3] [ref=f12e380]
+                  - paragraph [ref=f12e381]: A mapping application focused on visualization and location-based data services.
+                - list [ref=f12e382]:
+                  - listitem [ref=f12e383]:
+                    - generic [ref=f12e384]: JavaScript
+                - generic [ref=f12e386]:
+                  - generic [ref=f12e387]: Shipped
+                  - generic [aria-hidden] [ref=f12e388]: ↗
+            - listitem [ref=f12e389]:
+              - link "KnitKraft A creative platform concept exploring pattern design and crafting workflows. EJS Shipped" [ref=f12e390] [cursor=pointer]:
+                - /url: https://github.com/Mashielkhan/KnitKraft
+                - generic [ref=f12e391]:
+                  - heading "KnitKraft" [level=3] [ref=f12e392]
+                  - paragraph [ref=f12e393]: A creative platform concept exploring pattern design and crafting workflows.
+                - list [ref=f12e394]:
+                  - listitem [ref=f12e395]:
+                    - generic [ref=f12e396]: EJS
+                - generic [ref=f12e398]:
+                  - generic [ref=f12e399]: Shipped
+                  - generic [aria-hidden] [ref=f12e400]: ↗
+            - listitem [ref=f12e401]:
+              - link "NoteVec A note-taking application experimenting with vector-based storage for efficient retrieval and semantic search. TypeScript Shipped" [ref=f12e402] [cursor=pointer]:
+                - /url: https://github.com/Mashielkhan/note-vec
+                - generic [ref=f12e403]:
+                  - heading "NoteVec" [level=3] [ref=f12e404]
+                  - paragraph [ref=f12e405]: A note-taking application experimenting with vector-based storage for efficient retrieval and semantic search.
+                - list [ref=f12e406]:
+                  - listitem [ref=f12e407]:
+                    - generic [ref=f12e408]: TypeScript
+                - generic [ref=f12e410]:
+                  - generic [ref=f12e411]: Shipped
+                  - generic [aria-hidden] [ref=f12e412]: ↗
+            - listitem [ref=f12e413]:
+              - link "ContentForge An AI content suite mobile application designed to streamline content creation workflows. TypeScript In development" [ref=f12e414] [cursor=pointer]:
+                - /url: https://github.com/Mashielkhan/contentforge
+                - generic [ref=f12e415]:
+                  - heading "ContentForge" [level=3] [ref=f12e416]
+                  - paragraph [ref=f12e417]: An AI content suite mobile application designed to streamline content creation workflows.
+                - list [ref=f12e418]:
+                  - listitem [ref=f12e419]:
+                    - generic [ref=f12e420]: TypeScript
+                - generic [ref=f12e422]:
+                  - generic [ref=f12e423]: In development
+                  - generic [aria-hidden] [ref=f12e424]: ↗
+            - listitem [ref=f12e425]:
+              - link "Neon Trail A browser-based arcade game featuring six unlockable levels, increasing difficulty, hazards, power-ups, and combo-based scoring. Built with HTML, CSS, and the Canvas API, Neon Trail offers a visually engaging and interactive gaming experience. HTML CSS JavaScript Canvas API Shipped" [ref=f12e426] [cursor=pointer]:
+                - /url: https://github.com/Mashielkhan/neon-trail-game
+                - generic [ref=f12e427]:
+                  - heading "Neon Trail" [level=3] [ref=f12e428]
+                  - paragraph [ref=f12e429]: A browser-based arcade game featuring six unlockable levels, increasing difficulty, hazards, power-ups, and combo-based scoring. Built with HTML, CSS, and the Canvas API, Neon Trail offers a visually engaging and interactive gaming experience.
+                - list [ref=f12e430]:
+                  - listitem [ref=f12e431]:
+                    - generic [ref=f12e432]: HTML
+                  - listitem [ref=f12e434]:
+                    - generic [ref=f12e435]: CSS
+                  - listitem [ref=f12e437]:
+                    - generic [ref=f12e438]: JavaScript
+                  - listitem [ref=f12e440]:
+                    - generic [ref=f12e441]: Canvas API
+                - generic [ref=f12e443]:
+                  - generic [ref=f12e444]: Shipped
+                  - generic [aria-hidden] [ref=f12e445]: ↗
+            - listitem [ref=f12e446]:
+              - link "Smart House Price Prediction System A machine learning project for estimating property prices using data preprocessing, model experimentation, and an interactive Streamlit prediction interface. The system achieved an R² score of approximately 85%, demonstrating high accuracy in predicting house prices. Python Scikit-Learn Streamlit Shipped" [ref=f12e447] [cursor=pointer]:
+                - /url: /projects/house-price-prediction
+                - generic [ref=f12e448]:
+                  - heading "Smart House Price Prediction System" [level=3] [ref=f12e449]
+                  - paragraph [ref=f12e450]: A machine learning project for estimating property prices using data preprocessing, model experimentation, and an interactive Streamlit prediction interface. The system achieved an R² score of approximately 85%, demonstrating high accuracy in predicting house prices.
+                - list [ref=f12e451]:
+                  - listitem [ref=f12e452]:
+                    - generic [ref=f12e453]: Python
+                  - listitem [ref=f12e455]:
+                    - generic [ref=f12e456]: Scikit-Learn
+                  - listitem [ref=f12e458]:
+                    - generic [ref=f12e459]: Streamlit
+                - generic [ref=f12e461]:
+                  - generic [ref=f12e462]: Shipped
+                  - generic [aria-hidden] [ref=f12e463]: ↗
+            - listitem [ref=f12e464]:
+              - link "Task Management Application A task management application designed to organize work with task details, priority levels, due dates, progress tracking, completion controls, and authentication. Built with modern web technologies, this application provides a seamless experience for managing tasks efficiently. React Next.js TypeScript Shipped" [ref=f12e465] [cursor=pointer]:
+                - /url: https://github.com/Mashielkhan/Task-Management
+                - generic [ref=f12e466]:
+                  - heading "Task Management Application" [level=3] [ref=f12e467]
+                  - paragraph [ref=f12e468]: A task management application designed to organize work with task details, priority levels, due dates, progress tracking, completion controls, and authentication. Built with modern web technologies, this application provides a seamless experience for managing tasks efficiently.
+                - list [ref=f12e469]:
+                  - listitem [ref=f12e470]:
+                    - generic [ref=f12e471]: React
+                  - listitem [ref=f12e473]:
+                    - generic [ref=f12e474]: Next.js
+                  - listitem [ref=f12e476]:
+                    - generic [ref=f12e477]: TypeScript
+                - generic [ref=f12e479]:
+                  - generic [ref=f12e480]: Shipped
+                  - generic [aria-hidden] [ref=f12e481]: ↗
+            - listitem [ref=f12e482]:
+              - link "AppVision React A React and Vite web application project focused on building a modern frontend with reusable components and a responsive user interface. This project demonstrates expertise in frontend development using TypeScript and modern tooling. React Vite TypeScript Shipped" [ref=f12e483] [cursor=pointer]:
+                - /url: https://github.com/Mashielkhan/appvision-react
+                - generic [ref=f12e484]:
+                  - heading "AppVision React" [level=3] [ref=f12e485]
+                  - paragraph [ref=f12e486]: A React and Vite web application project focused on building a modern frontend with reusable components and a responsive user interface. This project demonstrates expertise in frontend development using TypeScript and modern tooling.
+                - list [ref=f12e487]:
+                  - listitem [ref=f12e488]:
+                    - generic [ref=f12e489]: React
+                  - listitem [ref=f12e491]:
+                    - generic [ref=f12e492]: Vite
+                  - listitem [ref=f12e494]:
+                    - generic [ref=f12e495]: TypeScript
+                - generic [ref=f12e497]:
+                  - generic [ref=f12e498]: Shipped
+                  - generic [aria-hidden] [ref=f12e499]: ↗
+            - listitem [ref=f12e500]:
+              - link "Paper ERP A workflow-focused ERP concept for a paper distribution business, planned around customer and supplier records, stock tracking, ledgers, and invoice generation. This project focuses on designing scalable business systems for real-world applications. Next.js TypeScript AWS In design" [ref=f12e501] [cursor=pointer]:
+                - /url: https://github.com/Mashielkhan/paper-erp
+                - generic [ref=f12e502]:
+                  - heading "Paper ERP" [level=3] [ref=f12e503]
+                  - paragraph [ref=f12e504]: A workflow-focused ERP concept for a paper distribution business, planned around customer and supplier records, stock tracking, ledgers, and invoice generation. This project focuses on designing scalable business systems for real-world applications.
+                - list [ref=f12e505]:
+                  - listitem [ref=f12e506]:
+                    - generic [ref=f12e507]: Next.js
+                  - listitem [ref=f12e509]:
+                    - generic [ref=f12e510]: TypeScript
+                  - listitem [ref=f12e512]:
+                    - generic [ref=f12e513]: AWS
+                - generic [ref=f12e515]:
+                  - generic [ref=f12e516]: In design
+                  - generic [aria-hidden] [ref=f12e517]: ↗
+          - group [ref=f12e518]:
+            - generic "Archive · 3 academic projects" [ref=f12e519] [cursor=pointer]:
+              - generic [aria-hidden] [ref=f12e521]: +
+      - region [ref=f12e522]:
+        - generic [ref=f12e523]:
+          - generic [ref=f12e524]:
+            - paragraph [ref=f12e525]: 05 — About
+            - heading "I build software around how businesses actually work." [level=2] [ref=f12e526]
+            - generic [ref=f12e527]:
+              - paragraph [ref=f12e528]: "I'm a Computer Science student at the University of Central Punjab in Lahore. What pulls me in is the gap between how businesses run today and how software could run them: manual processes, scattered communication, spreadsheets doing the job of systems."
+              - paragraph [ref=f12e529]: I work across the stack, from Flutter apps and React frontends to machine learning models, and I'm going deeper on AI agents and business automation.
+            - list "Interests" [ref=f12e530]:
+              - listitem [ref=f12e531]:
+                - generic [ref=f12e532]: Artificial Intelligence
+              - listitem [ref=f12e533]:
+                - generic [ref=f12e534]: Agentic AI
+              - listitem [ref=f12e535]:
+                - generic [ref=f12e536]: Business Automation
+              - listitem [ref=f12e537]:
+                - generic [ref=f12e538]: SaaS
+              - listitem [ref=f12e539]:
+                - generic [ref=f12e540]: Cloud Technologies
+          - list [ref=f12e545]:
+            - listitem [ref=f12e546]:
+              - paragraph [ref=f12e548]: "2023"
+              - heading "Started BSCS at UCP" [level=3] [ref=f12e549]
+            - listitem [ref=f12e550]:
+              - paragraph [ref=f12e552]: "2024"
+              - heading "First web projects" [level=3] [ref=f12e553]
+              - paragraph [ref=f12e554]: Introduction to React, Vite, Next.js, Tailwind CSS, and TypeScript. Built AppVision React, a Task Management application, and Neon Trail.
+            - listitem [ref=f12e555]:
+              - paragraph [ref=f12e557]: "2025"
+              - heading "Smart House Price Prediction (ML)" [level=3] [ref=f12e558]
+              - paragraph [ref=f12e559]: End-to-end machine learning project with an interactive Streamlit dashboard displaying an R² of approximately 85%.
+            - listitem [ref=f12e560]:
+              - paragraph [ref=f12e562]: "2026"
+              - heading "Advanced AI and backend engineering" [level=3] [ref=f12e563]
+              - paragraph [ref=f12e564]: Open-sourced the C# .NET 8 Library MCP Server, built an AI-powered resume analyzer (TalentLens AI), developed a mobile AI assistant (StuddyBuddy.AI), and launched the Electron AI Engine desktop application.
+      - region [ref=f12e565]:
+        - generic [ref=f12e566]:
+          - heading "Now" [level=2] [ref=f12e567]
+          - generic [ref=f12e568]:
+            - generic [ref=f12e569]:
+              - term [ref=f12e570]: Building
+              - definition [ref=f12e571]: TalentLens AI (resume analyzer & job matcher) · StuddyBuddy.AI (mobile study assistant) · Library MCP Server (.NET 8 library management)
+            - generic [ref=f12e572]:
+              - term [ref=f12e573]: Learning
+              - definition [ref=f12e574]: Flutter · Dart · AI/ML · Cloud Computing · Next.js 16.4.5 · TypeScript · Tailwind CSS
+          - paragraph [ref=f12e575]: Updated Nov 2026
+      - region [ref=f12e576]:
+        - generic [ref=f12e578]:
+          - paragraph [ref=f12e579]: 06 — Contact
+          - heading "Let's build something useful." [level=2] [ref=f12e580]
+          - paragraph [ref=f12e581]: I'm looking for a software or AI internship. If you're building products for real businesses, I'd like to hear about it.
+          - generic [ref=f12e582]:
+            - link "Email me" [ref=f12e583] [cursor=pointer]:
+              - /url: mailto:mashielkhan2@gmail.com
+            - link "Resume" [ref=f12e584] [cursor=pointer]:
+              - /url: https://res.cloudinary.com/ahm6zflr/image/upload/v1791897291/CV_of_MASHIEL_1__2.pdf
+          - generic [ref=f12e585]:
+            - link "GitHub profile (opens in a new tab)" [ref=f12e586] [cursor=pointer]:
+              - /url: https://github.com/Mashielkhan
+              - text: GitHub ↗
+            - link "LinkedIn profile (opens in a new tab)" [ref=f12e587] [cursor=pointer]:
+              - /url: https://www.linkedin.com/in/mashiel-khan-ba7a46367/
+              - text: LinkedIn ↗
+            - button "mashielkhan2@gmail.com Copy" [ref=f12e588]:
+              - generic [ref=f12e589]: mashielkhan2@gmail.com
+              - generic [ref=f12e590]: Copy
+          - paragraph [ref=f12e591]: Available from Open to internships · Lahore, UTC+5
+  - contentinfo [ref=f12e592]:
+    - generic [ref=f12e593]:
+      - paragraph [ref=f12e594]: © 2026 Mashiel Khan · Built with Next.js and Tailwind
+      - generic [ref=f12e595]:
+        - link "View portfolio source code on GitHub (opens in a new tab)" [ref=f12e596] [cursor=pointer]:
+          - /url: https://github.com/Mashielkhan
+          - text: Source ↗
+        - link "Back to top ↑" [ref=f12e597] [cursor=pointer]:
+          - /url: "#main"
+  - alert [ref=f12e598]

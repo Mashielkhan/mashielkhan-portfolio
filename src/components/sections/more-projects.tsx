@@ -26,9 +26,11 @@ export function ProjectRow({
 
       {project.stack.length > 0 && (
         <ul className="hidden flex-wrap gap-2 lg:flex lg:max-w-[18rem] lg:justify-end">
-          {project.stack.map((s) => (
+          {project.stack.map((s, i) => (
             <li key={s}>
-              <Chip>{s}</Chip>
+              <Reveal index={i}>
+                <Chip>{s}</Chip>
+              </Reveal>
             </li>
           ))}
         </ul>
