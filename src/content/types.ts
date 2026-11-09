@@ -21,6 +21,7 @@ export type Project = {
 
 export type SkillGroup = {
   title: string;
+  description?: string;
   skills: string[];
   usedIn?: string[]; // project slugs as proof
 };

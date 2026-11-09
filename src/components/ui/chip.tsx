@@ -5,9 +5,10 @@ export function Chip({ className, ...props }: React.HTMLAttributes<HTMLSpanEleme
     <span
       className={cn(
         "inline-flex items-center rounded-chip border border-border px-2.5 py-1 font-mono text-[0.75rem] leading-none text-text-2",
-        "transition-colors duration-(--dur-fast) hover:border-border-strong hover:text-text-1",
+        "transition-colors duration-(--dur-fast) hover:border-border-strong hover:text-text-1 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2",
         className,
       )}
+      tabIndex={0}
       {...props}
     />
   );

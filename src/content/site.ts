@@ -20,7 +20,7 @@ export const site = {
     "Computer Science student at UCP focused on building practical software solutions, AI-powered applications, and business systems. Current projects include TailorNex, a tailoring marketplace, a paper distribution ERP, and machine learning tools.",
 
   url: siteUrl,
-  resumeUrl: "/resume.pdf",
+  resumeUrl: "https://res.cloudinary.com/ahm6zflr/image/upload/v1791897291/CV_of_MASHIEL_1__2.pdf",
 
   email: "mashielkhan2@gmail.com",
 
@@ -43,9 +43,13 @@ export const site = {
   ],
 
   now: {
-    building: ["TailorNex", "Paper ERP"],
-    learning: ["Agentic AI workflows", "Cloud technologies"],
-    updated: "Oct 2026",
+    learning: ["Flutter", "Dart", "AI/ML", "Cloud Computing", "Next.js 16.4.5", "TypeScript", "Tailwind CSS"],
+    building: [
+      "TalentLens AI (resume analyzer & job matcher)",
+      "StuddyBuddy.AI (mobile study assistant)",
+      "Library MCP Server (.NET 8 library management)",
+    ],
+    updated: "Nov 2026",
   },
 
   interests: [

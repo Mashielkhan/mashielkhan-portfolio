@@ -1,0 +1,72 @@
+- generic [ref=f21e1]:
+  - generic [active]:
+    - generic [ref=f21e634]:
+      - generic [ref=f21e635]:
+        - navigation [ref=f21e637]:
+          - button [disabled] [ref=f21e638]:
+            - img "previous" [ref=f21e639]
+          - generic [ref=f21e641]:
+            - generic [ref=f21e642]: 1/
+            - generic [ref=f21e643]: "1"
+          - button [disabled] [ref=f21e644]:
+            - img "next" [ref=f21e645]
+        - generic [ref=f21e648]:
+          - generic "Latest available version is detected (16.4.5)." [ref=f21e651]: Next.js 16.4.5
+          - generic [ref=f21e652]: Turbopack
+      - dialog "Runtime Error" [ref=f21e654]:
+        - generic [ref=f21e657]:
+          - generic [ref=f21e659]:
+            - generic [ref=f21e660]:
+              - generic [ref=f21e661]: Runtime Error
+              - generic [ref=f21e663]:
+                - button "Copy Error Info" [ref=f21e664] [cursor=pointer]
+                - button "No related documentation found" [disabled] [ref=f21e667]
+                - button "Attach Node.js inspector" [ref=f21e670] [cursor=pointer]
+            - generic [ref=f21e680]:
+              - text: "You have rendered a `motion` component within a `LazyMotion` component. This will break tree shaking. Import and render a `m` component instead.. For more information and steps for solving, visit"
+              - link "https://motion.dev/troubleshooting/lazy-strict-mode" [ref=f21e681] [cursor=pointer]:
+                - /url: https://motion.dev/troubleshooting/lazy-strict-mode
+          - generic [ref=f21e682]:
+            - generic [ref=f21e683]:
+              - paragraph [ref=f21e685]:
+                - generic [ref=f21e690]: src/components/motion/page-transition.tsx (11:7) @ PageTransition
+                - button "Open in editor" [ref=f21e691] [cursor=pointer]
+              - generic [ref=f21e695]:
+                - generic [ref=f21e696]: 9 | return (
+                - generic [ref=f21e697]: 10 | <AnimatePresence mode="wait">
+                - generic [ref=f21e698]: "> 11 | <motion.div"
+                - generic [ref=f21e699]: "| ^"
+                - generic [ref=f21e700]: "12 | key={pathname}"
+                - generic [ref=f21e701]: "13 | initial={{ opacity: 0, y: 10 }}"
+                - generic [ref=f21e702]: "14 | animate={{ opacity: 1, y: 0 }}"
+            - generic [ref=f21e703]:
+              - generic [ref=f21e704]:
+                - paragraph [ref=f21e705]:
+                  - text: Call Stack
+                  - generic [ref=f21e706]: "16"
+                - button "Show 14 ignore-listed frame(s)" [ref=f21e707] [cursor=pointer]
+              - generic [ref=f21e710]:
+                - generic [ref=f21e711]:
+                  - text: PageTransition
+                  - button "Open PageTransition in editor" [ref=f21e712] [cursor=pointer]
+                - text: src/components/motion/page-transition.tsx (11:7)
+              - generic [ref=f21e715]:
+                - generic [ref=f21e716]:
+                  - text: RootLayout
+                  - button "Open RootLayout in editor" [ref=f21e717] [cursor=pointer]
+                - text: src\app\layout.tsx (69:13)
+    - generic [ref=f21e627] [cursor=pointer]:
+      - button "Open Next.js Dev Tools" [ref=f21e628]
+      - generic [ref=f21e720]:
+        - button "Open issues overlay" [ref=f21e721]:
+          - generic [ref=f21e722]:
+            - generic [aria-hidden] [ref=f21e723]: "0"
+            - generic [ref=f21e724]: "1"
+          - generic [ref=f21e725]: Issue
+        - button "Collapse issues badge" [ref=f21e726]
+  - generic [ref=f21e730]:
+    - heading "This page couldn’t load" [level=1] [ref=f21e733]
+    - paragraph [ref=f21e734]: Reload to try again, or go back.
+    - generic [ref=f21e735]:
+      - button "Reload" [ref=f21e737] [cursor=pointer]
+      - button "Back" [ref=f21e738] [cursor=pointer]

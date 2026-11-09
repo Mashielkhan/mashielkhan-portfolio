@@ -1,7 +1,7 @@
 'use client';
 
 import * as React from 'react';
-import { motion, isMotionComponent, type HTMLMotionProps } from 'motion/react';
+import { m, isMotionComponent, type HTMLMotionProps } from 'motion/react';
 import { cn } from '@/lib/utils';
 
 type AnyProps = Record<string, unknown>;
@@ -72,7 +72,7 @@ function Slot<T extends HTMLElement = HTMLElement>({
 
   const Base = isAlreadyMotion
     ? (children.type as React.ElementType)
-    : motion.create(children.type as React.ElementType);
+    : m.create(children.type as React.ElementType);
 
   const { ref: childRef, ...childProps } = children.props as AnyProps;
   const mergedProps = mergeProps(childProps, props);

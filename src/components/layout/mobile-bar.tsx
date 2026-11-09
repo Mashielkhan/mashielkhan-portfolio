@@ -2,10 +2,11 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import * as m from "motion/react-m";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/cn";
 import { site } from "@/content/site";
-
+import { ease, dur } from "@/lib/motion";
 
 export function MobileBar() {
   const [pastHero, setPastHero] = useState(false);
@@ -45,30 +46,44 @@ export function MobileBar() {
   const show = pastHero && !atEnd;
 
   return (
-    <div
+    <m.div
       aria-hidden={!show}
-      inert={!show}
+      initial={false}
+      animate={{ y: show ? 0 : "100%" }}
+      transition={{ duration: dur.base, ease: ease.out }}
       className={cn(
         "fixed inset-x-0 bottom-0 z-30 border-t border-border bg-bg-0/80 pb-[env(safe-area-inset-bottom)] backdrop-blur-md md:hidden",
-        "transition-transform duration-(--dur-base) ease-out-expo",
-        show ? "translate-y-0" : "translate-y-full",
       )}
     >
-      <nav aria-label="Quick actions" className="grid grid-cols-3 gap-2 p-2">
-        <Button asChild>
-          <Link href="#work">Work</Link>
-        </Button>
+      <nav aria-label="Quick actions" className="grid grid-cols-2 md:grid-cols-3 gap-2 p-2">
+        <m.div whileTap={{ scale: 0.95 }}>
+          <Button asChild className="w-full">
+            <Link href="#work">Work</Link>
+          </Button>
+        </m.div>
 
-        <Button asChild variant="ghost" size="lg">
-          <a href={site.resumeUrl} target="_blank" rel="noreferrer">
-            Resume
-          </a>
-        </Button>
+        <m.div whileTap={{ scale: 0.95 }}>
+          <Button asChild variant="ghost" size="lg" className="w-full">
+            <a href={site.resumeUrl} target="_blank" rel="noreferrer">
+              Resume
+            </a>
+          </Button>
+        </m.div>
 
-        <Button asChild variant="ghost" size="lg">
-          <Link href="#contact">Contact</Link>
-        </Button>
+        <m.div whileTap={{ scale: 0.95 }}>
+          <Button asChild variant="ghost" size="lg" className="w-full">
+            <Link href="#contact">Contact</Link>
+          </Button>
+        </m.div>
+
+        <m.div whileTap={{ scale: 0.95 }}>
+          <Button asChild variant="ghost" size="lg" className="w-full">
+            <a href="mailto:${site.email}" target="_blank" rel="noreferrer">
+              Contact Me
+            </a>
+          </Button>
+        </m.div>
       </nav>
-    </div>
+    </m.div>
   );
 }

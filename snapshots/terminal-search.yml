@@ -1,0 +1,15 @@
+Found 1 match for "Terminal":
+
+- generic [ref=e1]:
+  - main [active] [ref=e14]:
+    - generic [ref=e16]:
+      - region [ref=e539]:
+        - generic [ref=e540]:
+          - generic [ref=e541]:
+            - generic [ref=e559]:
+              - generic [ref=e561]:
+                - generic [ref=e562]: $
+                - generic [ref=e563]: Welcome to Mashiel's terminal. Type 'help' for a list of commands.
+              - generic [ref=e564]:
+                - generic [ref=e565]: $
+                - textbox [ref=e566]
