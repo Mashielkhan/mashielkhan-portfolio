@@ -8,7 +8,7 @@ import { Reveal } from "@/components/motion/reveal";
 
 export function About() {
   return (
-    <section id="about" aria-labelledby="about-title" className="bg-bg-1 section-y">
+    <section id="about" aria-labelledby="about-title" className="bg-bg-1/75 section-y">
       <Container className="grid gap-16 lg:grid-cols-12">
         <Reveal className="lg:col-span-5">
           <p className="font-mono text-label text-text-3 uppercase">05 — About</p>

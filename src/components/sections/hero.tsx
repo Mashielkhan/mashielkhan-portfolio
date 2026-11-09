@@ -6,7 +6,6 @@ import { Button } from "@/components/ui/button";
 import { Arrow } from "@/components/ui/arrow";
 import { Chip } from "@/components/ui/chip";
 import { StatusPill } from "@/components/ui/status-pill";
-import { HeroVisual } from "./hero-visual";
 import { site } from "@/content/site";
 import { projects } from "@/content/projects";
 import Link from "next/link";
@@ -19,8 +18,6 @@ export function Hero() {
     <section id="hero" className="relative isolate overflow-hidden">
       <div aria-hidden className="absolute inset-0 -z-10 bg-grid-lines" />
       <div aria-hidden className="absolute inset-0 -z-10 hero-glow" />
-      <HeroVisual />
-
       <Container className="relative flex min-h-[min(calc(100svh-4rem),900px)] items-center py-20">
         <m.div
           className="relative z-10 max-w-2xl"

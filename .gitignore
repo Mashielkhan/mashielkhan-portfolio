@@ -39,3 +39,16 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Visual Studio temporary files
+.vs/
+.vs-backup/
+
+# Playwright MCP test artifacts
+.playwright-mcp/
+
+# Local debugging artifacts
+PORTFOLIO_FIX_README.md
+hero-initial.png
+page-snapshot.yml
+*.backup.txt

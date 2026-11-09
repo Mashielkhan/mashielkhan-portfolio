@@ -2,217 +2,278 @@
 
 import { useEffect, useRef } from "react";
 
-type Node = { x: number; y: number; vx: number; vy: number; r: number; dx: number; dy: number };
-type Props = { onStatus: (s: "ready" | "failed") => void };
+type Node = {
+  x: number;
+  y: number;
+  vx: number;
+  vy: number;
+  r: number;
+  dx: number;
+  dy: number;
+};
+type Props = { onStatus: (status: "ready" | "failed") => void };
 
 function hexToRgb(hex: string) {
-  const v = hex.replace("#", "");
-  const full =
-    v.length === 3
-      ? v
-          .split("")
-          .map((c) => c + c)
-          .join("")
-      : v;
-  const n = parseInt(full, 16);
-  return `${(n >> 16) & 255},${(n >> 8) & 255},${n & 255}`;
+  const value = hex.trim().replace("#", "");
+  const full = value.length === 3 ? [...value].map((c) => c + c).join("") : value;
+  if (!/^[0-9a-f]{6}$/i.test(full)) return "108,123,255";
+  const number = Number.parseInt(full, 16);
+  return `${(number >> 16) & 255},${(number >> 8) & 255},${number & 255}`;
 }
 
+const clamp = (value: number, min: number, max: number) =>
+  Math.min(max, Math.max(min, value));
+
+/** The original connected-node Canvas 2D renderer, now mounted once behind the app. */
 export default function HeroScene({ onStatus }: Props) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
+  const statusRef = useRef(onStatus);
+
+  useEffect(() => {
+    statusRef.current = onStatus;
+  }, [onStatus]);
 
   useEffect(() => {
     const canvas = canvasRef.current;
-    const ctx = canvas?.getContext("2d");
     const host = canvas?.parentElement;
-    if (!canvas || !ctx || !host) {
-      onStatus("failed");
+    const ctx = canvas?.getContext("2d", { alpha: true });
+    if (!canvas || !host || !ctx) {
+      statusRef.current("failed");
       return;
     }
 
-    const dpr = Math.min(window.devicePixelRatio || 1, 1.5); // GPU guardrail
-    const accent =
-      getComputedStyle(document.documentElement).getPropertyValue("--color-accent-500").trim() ||
-      "#6c7bff";
-    const rgb = hexToRgb(accent);
-    const LINK = 130;
-
-    let w = 0,
-      h = 0;
+    const surface = canvas;
+    const context = ctx;
+    const motionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+    const dpr = Math.min(window.devicePixelRatio || 1, 1.5);
+    const rgb = hexToRgb(
+      getComputedStyle(document.documentElement)
+        .getPropertyValue("--color-accent-500") || "#6c7bff",
+    );
+    const linkDistance = 130;
+    let width = 1;
+    let height = 1;
     let nodes: Node[] = [];
-    let paths: Path2D[] = [];
-    let density = 1;
-    let raf = 0,
-      last = 0,
-      frames = 0,
-      acc = 0;
-    let announced = false,
-      inView = true,
-      tabVisible = !document.hidden;
-    const pointer = { x: 0, y: 0, tx: 0, ty: 0 };
+    let threads: Path2D[] = [];
+    let raf = 0;
+    let last = 0;
+    let disposed = false;
+    let shown = false;
+    let visible = !document.hidden;
+    let reduced = motionQuery.matches;
+    let targetProgress = 0;
+    let smoothProgress = 0;
+    let targetPointerX = 0;
+    let targetPointerY = 0;
+    let pointerX = 0;
+    let pointerY = 0;
+    let quality = 1;
+    let slowFrames = 0;
+    const camera = { zoom: 1, roll: 0, x: 0, y: 0, skewX: 0, skewY: 0 };
+
+    const getProgress = () => {
+      const limit = Math.max(0, document.documentElement.scrollHeight - window.innerHeight);
+      return limit > 0 ? clamp(window.scrollY / limit, 0, 1) : 0;
+    };
+    const onScroll = () => {
+      targetProgress = getProgress();
+    };
 
     const build = () => {
-      const count = Math.round(Math.min(90, (w * h) / 9000) * density);
+      const mobile = width < 768;
+      const maxNodes = mobile ? 38 : 90;
+      const count = Math.max(15, Math.round(Math.min(maxNodes, (width * height) / 9000) * quality));
+      // Same original right-weighted constellation: 25%-100% viewport width.
       nodes = Array.from({ length: count }, () => ({
-        x: w * (0.25 + Math.random() * 0.75),
-        y: h * Math.random(),
+        x: width * (0.25 + Math.random() * 0.75),
+        y: height * Math.random(),
         vx: (Math.random() - 0.5) * 0.14,
         vy: (Math.random() - 0.5) * 0.14,
         r: 1 + Math.random() * 1.6,
         dx: 0,
         dy: 0,
       }));
+      const hubX = width * 0.55;
+      const hubY = height * 0.5;
+      threads = [0.18, 0.4, 0.62, 0.84].map((fraction) => {
+        const path = new Path2D();
+        const startY = height * fraction;
+        path.moveTo(-10, startY);
+        path.bezierCurveTo(width * 0.2, startY, width * 0.3, hubY, hubX, hubY);
+        return path;
+      });
     };
 
     const resize = () => {
+      if (disposed) return;
       const rect = host.getBoundingClientRect();
-      w = rect.width;
-      h = rect.height;
-      canvas.width = Math.round(w * dpr);
-      canvas.height = Math.round(h * dpr);
-      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-      // "threads" entering from the left and converging on the network hub
-      const hubX = w * 0.55,
-        hubY = h * 0.5;
-      paths = [0.18, 0.4, 0.62, 0.84].map((f) => {
-        const p = new Path2D();
-        const y0 = h * f;
-        p.moveTo(-10, y0);
-        p.bezierCurveTo(w * 0.2, y0, w * 0.3, hubY, hubX, hubY);
-        return p;
-      });
+      width = Math.max(1, rect.width);
+      height = Math.max(1, rect.height);
+      surface.width = Math.max(1, Math.round(width * dpr));
+      surface.height = Math.max(1, Math.round(height * dpr));
       build();
+      onScroll();
+      if (reduced) render(performance.now(), 1);
     };
 
-    const stop = () => {
-      cancelAnimationFrame(raf);
-      raf = 0;
-    };
+    const render = (time: number, delta: number) => {
+      const smoothing = 1 - Math.exp(-0.075 * delta);
+      const progress = reduced ? 0 : smoothProgress + (targetProgress - smoothProgress) * smoothing;
+      smoothProgress = progress;
+      // Neutral initial camera preserves original hero composition.
+      const targetZoom = 1 + progress * 0.19;
+      const targetRoll = Math.sin(progress * Math.PI * 2) * 2.6 * Math.PI / 180;
+      const targetX = Math.sin(progress * Math.PI * 1.7) * 26;
+      const targetY = Math.sin(progress * Math.PI * 2.3) * 18;
+      const targetSkewX = Math.sin(progress * Math.PI * 2) * 0.023;
+      const targetSkewY = Math.sin(progress * Math.PI * 1.6) * 0.014;
+      camera.zoom += (targetZoom - camera.zoom) * smoothing;
+      camera.roll += (targetRoll - camera.roll) * smoothing;
+      camera.x += (targetX - camera.x) * smoothing;
+      camera.y += (targetY - camera.y) * smoothing;
+      camera.skewX += (targetSkewX - camera.skewX) * smoothing;
+      camera.skewY += (targetSkewY - camera.skewY) * smoothing;
+      pointerX += ((reduced ? 0 : targetPointerX) - pointerX) * smoothing;
+      pointerY += ((reduced ? 0 : targetPointerY) - pointerY) * smoothing;
 
-    const frame = (t: number) => {
-      raf = requestAnimationFrame(frame);
-      const dtMs = last ? t - last : 16.7;
-      last = t;
-      const dt = Math.min(dtMs, 40) / 16.7;
+      // Clear the entire bitmap in device-pixel space BEFORE camera transforms.
+      context.setTransform(1, 0, 0, 1, 0, 0);
+      context.clearRect(0, 0, surface.width, surface.height);
+      context.setTransform(dpr, 0, 0, dpr, 0, 0);
+      context.save();
+      context.translate(width / 2 + camera.x, height / 2 + camera.y);
+      context.rotate(camera.roll);
+      context.transform(1, camera.skewY, camera.skewX, 1, 0, 0);
+      context.scale(camera.zoom, camera.zoom);
+      context.translate(-width / 2, -height / 2);
 
-      // FPS watchdog: halve density once, then give up and fall back to the poster
-      acc += dtMs;
-      if (++frames === 90) {
-        const avg = acc / frames;
-        frames = 0;
-        acc = 0;
-        if (avg > 26) {
-          if (density > 0.5) {
-            density = 0.5;
-            build();
-          } else {
-            stop();
-            onStatus("failed");
-            return;
-          }
+      // Original incoming Bezier threads and moving highlights.
+      context.lineWidth = 1;
+      context.strokeStyle = `rgba(${rgb},0.14)`;
+      for (const thread of threads) context.stroke(thread);
+      if (!reduced) {
+        context.setLineDash([60, 520]);
+        context.strokeStyle = `rgba(${rgb},0.55)`;
+        threads.forEach((thread, i) => {
+          context.lineDashOffset = -(time * 0.04 + i * 140);
+          context.stroke(thread);
+        });
+        context.setLineDash([]);
+        context.lineDashOffset = 0;
+      }
+
+      for (const node of nodes) {
+        if (!reduced) {
+          node.x += node.vx * delta;
+          node.y += node.vy * delta;
+          if (node.x < width * 0.25 || node.x > width) node.vx *= -1;
+          if (node.y < 0 || node.y > height) node.vy *= -1;
         }
+        // Small depth offset by original radius; maintains connected visual identity.
+        const depth = (node.r - 1) / 1.6;
+        node.dx = node.x + pointerX * 16 * node.r / 2.6 + Math.sin(progress * Math.PI * 2) * depth * 18;
+        node.dy = node.y + pointerY * 16 * node.r / 2.6 + Math.sin(progress * Math.PI * 2.4) * depth * 12;
       }
-
-      pointer.x += (pointer.tx - pointer.x) * 0.06 * dt;
-      pointer.y += (pointer.ty - pointer.y) * 0.06 * dt;
-      const px = pointer.x * 16,
-        py = pointer.y * 16;
-
-      ctx.clearRect(0, 0, w, h);
-
-      // threads: faint base + a travelling highlight
-      ctx.lineWidth = 1;
-      ctx.strokeStyle = `rgba(${rgb},0.14)`;
-      for (const p of paths) ctx.stroke(p);
-      ctx.setLineDash([60, 520]);
-      ctx.strokeStyle = `rgba(${rgb},0.55)`;
-      paths.forEach((p, i) => {
-        ctx.lineDashOffset = -(t * 0.04 + i * 140);
-        ctx.stroke(p);
-      });
-      ctx.setLineDash([]);
-
-      // update nodes (depth-scaled parallax via radius)
-      for (const n of nodes) {
-        n.x += n.vx * dt;
-        n.y += n.vy * dt;
-        if (n.x < w * 0.25 || n.x > w) n.vx *= -1;
-        if (n.y < 0 || n.y > h) n.vy *= -1;
-        n.dx = n.x + (px * n.r) / 2.6;
-        n.dy = n.y + (py * n.r) / 2.6;
-      }
-
-      // links
       for (let i = 0; i < nodes.length; i++) {
         const a = nodes[i];
         for (let j = i + 1; j < nodes.length; j++) {
           const b = nodes[j];
-          const dx = a.dx - b.dx,
-            dy = a.dy - b.dy;
-          const d2 = dx * dx + dy * dy;
-          if (d2 < LINK * LINK) {
-            const alpha = (1 - Math.sqrt(d2) / LINK) * 0.4;
-            ctx.strokeStyle = `rgba(${rgb},${alpha.toFixed(3)})`;
-            ctx.beginPath();
-            ctx.moveTo(a.dx, a.dy);
-            ctx.lineTo(b.dx, b.dy);
-            ctx.stroke();
-          }
+          const dx = a.dx - b.dx;
+          const dy = a.dy - b.dy;
+          const distance = Math.hypot(dx, dy);
+          if (distance >= linkDistance) continue;
+          const alpha = (1 - distance / linkDistance) * 0.4;
+          context.strokeStyle = `rgba(${rgb},${alpha.toFixed(3)})`;
+          context.beginPath();
+          context.moveTo(a.dx, a.dy);
+          context.lineTo(b.dx, b.dy);
+          context.stroke();
         }
       }
-
-      // dots
-      ctx.fillStyle = `rgba(${rgb},0.9)`;
-      for (const n of nodes) {
-        ctx.beginPath();
-        ctx.arc(n.dx, n.dy, n.r, 0, Math.PI * 2);
-        ctx.fill();
+      context.fillStyle = `rgba(${rgb},0.9)`;
+      for (const node of nodes) {
+        context.beginPath();
+        context.arc(node.dx, node.dy, node.r, 0, Math.PI * 2);
+        context.fill();
       }
-
-      if (!announced) {
-        announced = true;
-        onStatus("ready");
+      context.restore(); // Matched with save() on every frame.
+      if (!shown) {
+        shown = true;
+        statusRef.current("ready");
       }
     };
 
+    const frame = (time: number) => {
+      raf = 0;
+      if (disposed || !visible || reduced) return;
+      const elapsed = last ? time - last : 16.7;
+      last = time;
+      const delta = clamp(elapsed / 16.7, 0.1, 2.4);
+      if (elapsed > 35) slowFrames++;
+      else slowFrames = Math.max(0, slowFrames - 1);
+      if (slowFrames > 90 && quality > 0.6) {
+        quality = 0.6;
+        slowFrames = 0;
+        build();
+      }
+      render(time, delta);
+      raf = window.requestAnimationFrame(frame);
+    };
     const start = () => {
-      if (raf || !inView || !tabVisible) return;
+      if (disposed || raf || !visible) return;
+      if (reduced) {
+        render(performance.now(), 1);
+        return;
+      }
       last = 0;
-      raf = requestAnimationFrame(frame);
+      raf = window.requestAnimationFrame(frame);
     };
-
-    const io = new IntersectionObserver(([e]) => {
-      inView = e.isIntersecting;
-      if (inView) start();
-      else stop();
-    });
+    const stop = () => {
+      if (raf) cancelAnimationFrame(raf);
+      raf = 0;
+    };
     const onVisibility = () => {
-      tabVisible = !document.hidden;
-      if (tabVisible) start();
+      visible = !document.hidden;
+      if (visible) { onScroll(); start(); }
       else stop();
     };
-    const onMove = (e: PointerEvent) => {
-      pointer.tx = (e.clientX / window.innerWidth - 0.5) * 2;
-      pointer.ty = (e.clientY / window.innerHeight - 0.5) * 2;
+    const onPointer = (event: PointerEvent) => {
+      targetPointerX = (event.clientX / window.innerWidth - 0.5) * 2;
+      targetPointerY = (event.clientY / window.innerHeight - 0.5) * 2;
     };
-    const ro = new ResizeObserver(resize);
-
-    io.observe(canvas);
-    ro.observe(host);
-    document.addEventListener("visibilitychange", onVisibility);
-    window.addEventListener("pointermove", onMove, { passive: true });
-    resize();
-    start();
-
-    return () => {
+    const onReducedMotion = (event: MediaQueryListEvent) => {
+      reduced = event.matches;
       stop();
-      io.disconnect();
-      ro.disconnect();
-      document.removeEventListener("visibilitychange", onVisibility);
-      window.removeEventListener("pointermove", onMove);
+      if (reduced) {
+        smoothProgress = 0;
+        targetProgress = 0;
+        targetPointerX = 0;
+        targetPointerY = 0;
+        Object.assign(camera, { zoom: 1, roll: 0, x: 0, y: 0, skewX: 0, skewY: 0 });
+      } else onScroll();
+      start();
     };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+    const observer = new ResizeObserver(resize);
+    observer.observe(host);
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onScroll);
+    window.addEventListener("pointermove", onPointer, { passive: true });
+    document.addEventListener("visibilitychange", onVisibility);
+    motionQuery.addEventListener("change", onReducedMotion);
+    resize();
+    onScroll();
+    start();
+    return () => {
+      disposed = true;
+      stop();
+      observer.disconnect();
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", onScroll);
+      window.removeEventListener("pointermove", onPointer);
+      document.removeEventListener("visibilitychange", onVisibility);
+      motionQuery.removeEventListener("change", onReducedMotion);
+    };
   }, []);
 
-  return <canvas ref={canvasRef} aria-hidden className="h-full w-full" />;
+  return <canvas ref={canvasRef} aria-hidden="true" className="block h-full w-full" />;
 }

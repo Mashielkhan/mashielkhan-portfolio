@@ -9,7 +9,7 @@ export function Contact() {
   const link = "text-text-2 transition-colors duration-(--dur-fast) hover:text-text-1";
 
   return (
-    <section id="contact" aria-labelledby="contact-title" className="bg-bg-1 section-y text-center">
+    <section id="contact" aria-labelledby="contact-title" className="bg-bg-1/75 section-y text-center">
       <Container size="copy">
         <Reveal>
           <p className="font-mono text-label text-text-3 uppercase">06 — Contact</p>

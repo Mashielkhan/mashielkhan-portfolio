@@ -1,3 +1,4 @@
+
 import type { Metadata } from "next";
 import { Hero } from "@/components/sections/hero";
 import { FeaturedWork } from "@/components/sections/featured-work";
@@ -11,50 +12,50 @@ import { site } from "@/content/site";
 import { JsonLd } from "@/components/seo/json-ld";
 
 export const metadata: Metadata = {
-  alternates: {
-    canonical: "/",
-  },
+    alternates: {
+        canonical: "/",
+    },
 };
 
 const person = {
-  "@context": "https://schema.org",
-  "@type": "Person",
-  "@id": `${site.url}/#person`,
-  name: site.name,
-  url: site.url,
-  jobTitle: "Computer Science student and software developer",
-  description: site.description,
-  address: {
-    "@type": "PostalAddress",
-    addressLocality: "Lahore",
-    addressCountry: "PK",
-  },
-  affiliation: {
-    "@type": "CollegeOrUniversity",
-    name: "University of Central Punjab",
-  },
-  sameAs: [site.socials.github, site.socials.linkedin],
-  knowsAbout: [
-    "Software development",
-    "Machine learning",
-    "Flutter",
-    "Business automation",
-  ],
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "@id": `${site.url}/#person`,
+    name: site.name,
+    url: site.url,
+    jobTitle: "Computer Science student and software developer",
+    description: site.description,
+    address: {
+        "@type": "PostalAddress",
+        addressLocality: "Lahore",
+        addressCountry: "PK",
+    },
+    affiliation: {
+        "@type": "CollegeOrUniversity",
+        name: "University of Central Punjab",
+    },
+    sameAs: [site.socials.github, site.socials.linkedin],
+    knowsAbout: [
+        "Software development",
+        "Machine learning",
+        "Flutter",
+        "Business automation",
+    ],
 };
 
 export default function HomePage() {
-  return (
-    <>
-      <JsonLd data={person} />
+    return (
+        <>
+            <JsonLd data={person} />
 
-      <Hero />
-      <FeaturedWork />
-      <Approach />
-      <Skills />
-      <MoreProjects />
-      <About />
-      <Now />
-      <Contact />
-    </>
-  );
+            <Hero />
+            <FeaturedWork />
+            <Approach />
+            <Skills />
+            <MoreProjects />
+            <About />
+            <Now />
+            <Contact />
+        </>
+    );
 }
